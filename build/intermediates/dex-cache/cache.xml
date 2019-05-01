@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\35df9778ff672d3fbd5821c777bc06bb\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="874f1143c11f5d38533efe512bf913e3e847e7df">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\19\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\4a33bc768c4a3ee8b723d7da77133517\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d968b9bd0011800e0d333d1571b8d34bcb8a0b6e">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\cf057421cd032ee52ad437bdfb676ebf\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e2bbe48deed35056023eed2cdc0cc92e5c7d3617">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\32\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\27\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\gridlayout-v7-27.1.1.aar\61fdca6c5f936370cb2710702b7ebebe\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="67b304867c1573688e72fac3c500cfc7cf7e9077">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\modules-2\files-2.1\android.arch.lifecycle\common\1.1.0\edf3f7bfb84a7521d0599efa3b0113a0ee90f85\common-1.1.0.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="0edf3f7bfb84a7521d0599efa3b0113a0ee90f85">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\36\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\circleimageview-2.2.0.aar\f5f815627d45e0ded0fb059baf333720\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e70a3fed299d84cd868614e11021664d72b8e488">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\f1b89c3c53b56c77aa5764a411333ac4\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="1fd3ceac7f415975323d52c6c6057db409a907f6">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\35\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\e3b9ac6c72feac57d8a8ae54ff02372a\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="7038c6d960d3fe26fd41bc509f256c9692d886ce">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\23\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\materialdatetimepicker-3.5.0.aar\13a7a04dfffdfbadbbe2aef4a1dd1f36\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="8e75fa140d1d32b0edc5340140560455dbf55a9b">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.4.0\fc4aa382632bfaa7be7b41579efba41d5a71ecf3\retrofit-2.4.0.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="fc4aa382632bfaa7be7b41579efba41d5a71ecf3">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\12\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\library-2.1.4.aar\10dc7ef2abdec9ae90621d6ab63a2b9d\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="288913b440a3c61c30aa171095453a605432277a">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\a734d9ff53e464346c447fe75c63ecf3\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ae6d33f37143b08cd8c477c9e348d61ef7ed7eba">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\cd30186ccd997a5436511f578ddcb89f\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="88c68e5ef7c5ace393d014c9ec5fe736b1ca55cf">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\22\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\glide-4.9.0.aar\1534c954fb01069c8b3291142ae77cfa\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="12c6a298b609e825ad3994a96f9e61b3aac7046f">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\14\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\cardview-v7-27.1.1.aar\b8b39712d59e091bc63ffd18e64a7021\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4798b2c2dd1fa53176696fa416890d27acbf5617">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\1518690bc4f899d574c4eb85a0f9f2b3\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c9a721adcd7dbae7a197b0ef81102336539f63ff">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\21\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\27.1.1\39ded76b5e1ce1c5b2688e1d25cdc20ecee32007\support-annotations-27.1.1.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="39ded76b5e1ce1c5b2688e1d25cdc20ecee32007">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\26\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\9512828086d60b6044f42c17fceb01ef\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4d2b8ad415048e88b41ba4afcaafe36150e69b8c">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\multidex-1.0.3.aar\eb48affc1d2130ddd101bf8bad1d0b55\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="9068775bb0941e0fc1d4ff9adbf5d73475794955">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\15\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\4201e172d033cd0706f5bdbe272e24f6\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="23dcb4803d3103bde3f3f5db978a726338fe49ae">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\24\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\0fb89e8fc54b2ccfca65aaab430d5f2c\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="8a9fd7c97f1d13f97f3b52f9d2e54cd857d5acf9">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\34\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\disklrucache\4.9.0\cbb185635e8f265d6391c7d43118d3856574dc3a\disklrucache-4.9.0.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="cbb185635e8f265d6391c7d43118d3856574dc3a">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\30\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\0506f43250d1517ca171c354c539912a\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ec657bb192b20229696216bf233779b16bf75a54">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\20\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\modules-2\files-2.1\com.android.support.constraint\constraint-layout-solver\1.1.3\bde0667d7414c16ed62d3cfe993cff7f9d732373\constraint-layout-solver-1.1.3.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="bde0667d7414c16ed62d3cfe993cff7f9d732373">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\28\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\support-v13-27.1.1.aar\dcfdb8a731df6d1eee3b7cf817a9ff48\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="019d86b31bcd21970d370ca1425cc68ec23f1be7">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\gifdecoder-4.9.0.aar\3983a0cbce49e53a7dfc23bddf62d737\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="221de83c08ed1502286513b4d472d256341e8839">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\25\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.8.4\d0de1ca9b69e69d1d497ee3c6009d015f64dad57\gson-2.8.4.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d0de1ca9b69e69d1d497ee3c6009d015f64dad57">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\13\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\17361ae12c6f26ff8963e9508716ee47\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="71d380aeac037e63bab7bda2ba211777e16a2f42">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\37\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.10.0\7ef0f1d95bf4c0b3ba30bbae25e0e562b05cf75e\okhttp-3.10.0.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="7ef0f1d95bf4c0b3ba30bbae25e0e562b05cf75e">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\29\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\fb738ca9e37374fc46f93959e0522f05\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b15c6ded887ad967e20bb335c1a121b253c04dce">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\10\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.4.0\15d7790ee311d961379c51b00aba12d5967cb7ea\converter-gson-2.4.0.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="15d7790ee311d961379c51b00aba12d5967cb7ea">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\11\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\annotations\4.9.0\ccdd6bc8b4f3c001fbddec29ecddd515a13203c4\annotations-4.9.0.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ccdd6bc8b4f3c001fbddec29ecddd515a13203c4">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\31\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\0af35ae9f58b2bf1a4ba27b8822b17a9\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="3304d33470ff64cf83bce9189ff3648a42eb2aa7">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\17\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.14.0\102d7be47241d781ef95f1581d414b0943053130\okio-1.14.0.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="102d7be47241d781ef95f1581d414b0943053130">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\33\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\331182d7f3fcc984f2d4a5afff832792\jars\classes.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2feadd535770271ca57b7b431f42151aa4af324a">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\18\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Kareem Shatta\.gradle\caches\modules-2\files-2.1\android.arch.core\common\1.1.0\8007981f7d7540d89cd18471b8e5dcd2b4f99167\common-1.1.0.jar"
+        jumboMode="false"
+        min-sdk-version="22"
+        optimize="true"
+        revision="26.0.2"
+        sha1="8007981f7d7540d89cd18471b8e5dcd2b4f99167">
+        <dex dex="D:\Projects\android\graduation project\FCI_SCU_Project\app\build\intermediates\transforms\preDex\release\38\classes.dex" />
+    </item>
+
+</items>

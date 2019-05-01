@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    >
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/comment_fragment_profile_picture"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_user_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/comment_fragment_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Profile name"
+        android:textColor="@color/colorDrawerBG"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/comment_fragment_profile_picture"
+        app:layout_constraintTop_toTopOf="@+id/comment_fragment_profile_picture" />
+
+    <TextView
+        android:id="@+id/comment_fragment_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Comment"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/comment_fragment_profile"
+        app:layout_constraintTop_toBottomOf="@+id/comment_fragment_profile" />
+
+</android.support.constraint.ConstraintLayout>

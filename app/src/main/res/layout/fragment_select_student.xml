@@ -1,0 +1,46 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorTransporterWhite"
+    tools:context="com.example.kareem.fci_scu_project.fragments.SelectStudentFragment">
+
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <ExpandableListView
+            android:id="@+id/expandable_list"
+            android:layout_width="wrap_content"
+            android:layout_height="472dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:childDivider="@color/colorPrimary"
+
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="132dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="8dp"
+            android:background="@color/colorBtnBG"
+            android:text="Result"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</FrameLayout>

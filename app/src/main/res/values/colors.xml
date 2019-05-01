@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#22242a</color>
+    <color name="colorPrimaryDark">#222222</color>
+    <color name="colorAccent">#05caca</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorTransporterWhite">#eaecef</color>
+    <color name="colorBtnBG">#4ecdc4</color>
+    <color name="colorDrawerBG">#2f323a</color>
+    <color name="colorDrawerText">#aeb2b7</color>
+    <color name="colorCheckBG">#a7e6e2</color>
+    <color name="colorRed">#da1f1f</color>
+
+</resources>
