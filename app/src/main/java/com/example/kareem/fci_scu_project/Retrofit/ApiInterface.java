@@ -24,5 +24,12 @@ public interface ApiInterface {
     @GET("tasks")
     Call<TasksResponse> getTasksCall(@Query("subjectid") Integer subjectId);
 
+//mstany eldesha
+
+    @GET("forgetPassword")
+    Call<Boolean>forgetPasswordCall(@Query("email") String email);
+
+
+
 
 }
