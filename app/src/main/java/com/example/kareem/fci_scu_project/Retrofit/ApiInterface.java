@@ -26,8 +26,11 @@ public interface ApiInterface {
 
 //mstany eldesha
 
-    @GET("forgetPassword")
+    @POST("forgetPassword")
     Call<Boolean>forgetPasswordCall(@Query("email") String email);
+
+    @POST("editpassword")
+    Call<Boolean> editPasswordCall(@Query("userid") String userId , @Query("newpass") String newPass);
 
 
 
