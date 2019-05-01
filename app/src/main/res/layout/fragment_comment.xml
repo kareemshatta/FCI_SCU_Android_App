@@ -7,6 +7,8 @@
     tools:context="com.example.kareem.fci_scu_project.fragments.CommentFragment">
 
 
+
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -64,4 +66,13 @@
                 app:layout_constraintEnd_toEndOf="parent" />
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>
+    <ProgressBar
+        android:id="@+id/comment_loading_pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_marginStart="8dp"
+        android:foregroundGravity="top"
+
+        android:indeterminate="true" />
 </FrameLayout>
