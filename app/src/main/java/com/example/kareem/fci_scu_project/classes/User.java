@@ -13,7 +13,7 @@ public class User {
     private String userName;
     @SerializedName("Email")
     @Expose
-    private Object email;
+    private String email;
     @SerializedName("Password")
     @Expose
     private String password;
@@ -55,11 +55,11 @@ public class User {
         this.userName = userName;
     }
 
-    public Object getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(Object email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 

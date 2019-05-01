@@ -35,6 +35,7 @@ public class CourseDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+
         flag = getIntent().getStringExtra("flag");
         HomeActivity.coursesBack = 1;
 
