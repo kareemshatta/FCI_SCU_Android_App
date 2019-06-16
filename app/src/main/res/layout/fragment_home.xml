@@ -6,11 +6,22 @@
     android:background="@color/colorTransporterWhite"
     tools:context="com.example.kareem.fci_scu_project.fragments.HomeFragment">
 
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/homeRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         ></android.support.v7.widget.RecyclerView>
+    <ProgressBar
+        android:id="@+id/home_post_loading_pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+
+        android:indeterminate="true" />
 
 </FrameLayout>
+
+
+

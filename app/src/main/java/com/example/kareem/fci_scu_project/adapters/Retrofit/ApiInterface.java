@@ -1,4 +1,4 @@
-package com.example.kareem.fci_scu_project.Retrofit;
+package com.example.kareem.fci_scu_project.adapters.Retrofit;
 
 import com.example.kareem.fci_scu_project.classes.CommentResponse;
 import com.example.kareem.fci_scu_project.classes.LoginResponse;
@@ -15,7 +15,7 @@ import retrofit2.http.Query;
 public interface ApiInterface {
 
     @POST("login")
-    Call<LoginResponse> getUserCall(@Query("name") String name , @Query("pass") String pass);
+    Call<LoginResponse> getUserCall(@Query("name") String name, @Query("pass") String pass);
 
     @GET("subjects")
     Call<SubjectsResponse> getSubjectsCall(@Query("userid") String userId);
@@ -25,14 +25,6 @@ public interface ApiInterface {
 
     @GET("tasks")
     Call<TasksResponse> getTasksCall(@Query("subjectid") Integer subjectId);
-
-//mstany eldesha
-
-    @POST("forgetPassword")
-    Call<Boolean>forgetPasswordCall(@Query("email") String email);
-
-    @POST("editpassword")
-    Call<Boolean> editPasswordCall(@Query("userid") String userId , @Query("newpass") String newPass);
     @GET("posts")
     Call<PostResponse> getPostsCall(@Query("userid") String userId);
 
@@ -53,9 +45,6 @@ public interface ApiInterface {
 
     @POST("addcomment")
     Call<String> addComment(@Query("userid") String userId, @Query("postid") String postid, @Query("content") String content);;
-
-
-
 
 
 }

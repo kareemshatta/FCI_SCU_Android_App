@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.kareem.fci_scu_project.R;
+import com.example.kareem.fci_scu_project.classes.Comment;
 import com.example.kareem.fci_scu_project.model.PostModel;
 
 import java.util.ArrayList;
@@ -24,13 +25,13 @@ public class CommentFragmentAdapter extends RecyclerView.Adapter<CommentFragment
     Context context;
     FragmentManager fragmentManager;
     PostModel model;
-    ArrayList<String> comments;
+    ArrayList<Comment> comments;
 
-    public CommentFragmentAdapter(Context context, PostModel postModel, FragmentManager fragmentManager) {
+    public CommentFragmentAdapter(Context context, ArrayList<Comment> comments, FragmentManager fragmentManager) {
         this.context = context;
         this.fragmentManager = fragmentManager;
-        this.model = postModel;
-        comments = postModel.getComments();
+        this.comments = comments;
+
 
 
     }
@@ -44,9 +45,9 @@ public class CommentFragmentAdapter extends RecyclerView.Adapter<CommentFragment
 
     @Override
     public void onBindViewHolder(@NonNull final OkViewHolder holder, int position) {
-        String comment = comments.get(position);
-        holder.comment_fragment_profile.setText(String.valueOf(model.getName()));
-        holder.comment_fraggment_text.setText(comment);
+        Comment comment = comments.get(position);
+//        holder.comment_fragment_profile.setText(comment.);
+        holder.comment_fraggment_text.setText(comment.getContent());
 
 
     }
@@ -70,6 +71,7 @@ public class CommentFragmentAdapter extends RecyclerView.Adapter<CommentFragment
 
         }
     }
+
 
 
 }

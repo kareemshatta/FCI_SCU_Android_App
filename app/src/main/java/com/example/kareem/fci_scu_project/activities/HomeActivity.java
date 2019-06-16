@@ -6,10 +6,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.kareem.fci_scu_project.R;
 import com.example.kareem.fci_scu_project.fragments.CoursesFragment;
@@ -78,20 +78,27 @@ public class HomeActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+            replaceFragment(new HomeFragment());
 
+        }
         if (coursesBack == 1) {
             replaceFragment(new CoursesFragment());
+
             fab.setVisibility(View.GONE);
             coursesBack = 0;
         } else if (teamsBack == 1 && flag.equals("student")) {
             replaceFragment(new CreateTeamFragment());
+
             fab.setVisibility(View.GONE);
             teamsBack = 0;
         } else if (teamsBack == 1 && !flag.equals("student")) {
             replaceFragment(new DoctorTeamsFragment());
+
             fab.setVisibility(View.GONE);
             teamsBack = 0;
         } else {
+
             replaceFragment(new HomeFragment());
             navigationView.getMenu().getItem(0).setChecked(true);
         }
@@ -103,14 +110,34 @@ public class HomeActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+
+        }
+        else if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
             getSupportFragmentManager().popBackStack();
+            replaceFragment(new HomeFragment());
+
+//        }else if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
+//            replaceFragment(new HomeFragment());
+
         } else {
             replaceFragment(new HomeFragment());
             getSupportActionBar().setTitle(R.string.home_nav_txt);
             fab.setVisibility(View.VISIBLE);
             navigationView.getMenu().getItem(0).setChecked(true);
         }
+//        if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
+//            new AlertDialog.Builder(this)
+//                    .setMessage("Are you sure you want to exit?")
+//                    .setCancelable(false)
+//                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int id) {
+//                            HomeActivity.super.onBackPressed();
+//                        }
+//                    })
+//                    .setNegativeButton("No", null)
+//                    .show();
+//
+//        }
     }
 
     @Override
@@ -165,6 +192,7 @@ public class HomeActivity extends AppCompatActivity
 
             getSupportActionBar().setTitle(R.string.Courses_textview_txt);
             replaceFragment(new CoursesFragment());
+
             fab.setVisibility(View.GONE);
 
         } else if (id == R.id.nav_team) {
@@ -195,7 +223,7 @@ public class HomeActivity extends AppCompatActivity
 
             getSupportActionBar().setTitle(R.string.profile_nav_txt);
             replaceFragment(new ProfileFragment());
-            fab.setVisibility(View.GONE);
+           fab.setVisibility(View.GONE);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

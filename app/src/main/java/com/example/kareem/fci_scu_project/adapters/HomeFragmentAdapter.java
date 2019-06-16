@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,13 +13,23 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.kareem.fci_scu_project.R;
+import com.example.kareem.fci_scu_project.Retrofit.ApiInterface;
+import com.example.kareem.fci_scu_project.Retrofit.RetrofitClient;
+import com.example.kareem.fci_scu_project.classes.Post;
+import com.example.kareem.fci_scu_project.classes.User;
 import com.example.kareem.fci_scu_project.fragments.CommentFragment;
-import com.example.kareem.fci_scu_project.model.PostModel;
 
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by youssef on 1/2/2019.
@@ -26,26 +37,19 @@ import java.util.ArrayList;
 
 public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapter.MyViewHolder> {
 
-     boolean like = false;
-    Context context;
-    ArrayList<PostModel> postModels = new ArrayList<>();
-    PostModel model;
-    FragmentManager fragmentManager;
-    private OnItemClickListener listener;
+    private Context context;
+    private ArrayList<Post> postList;
+    private Post post;
+    private FragmentManager fragmentManager;
+    private static int commentNum=0;
 
-    public interface OnItemClickListener {
-        void onItemClick(int postion);
-    }
-    public void setOnItemClickListner(OnItemClickListener listner){
-        this.listener = listner;
+    public static void refreshCommentNum(int count){
+        commentNum+= count;
     }
 
-
-
-
-    public HomeFragmentAdapter(Context context, ArrayList<PostModel> postModels, FragmentManager fragmentManager) {
+    public HomeFragmentAdapter(Context context, ArrayList<Post> postList, FragmentManager fragmentManager) {
         this.context = context;
-        this.postModels = postModels;
+        this.postList = postList;
         this.fragmentManager = fragmentManager;
 
     }
@@ -60,64 +64,108 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
+        final Drawable shape1 = context.getDrawable(R.drawable.home_fragment_like_btn);
+        final Drawable shape2 = context.getDrawable(R.drawable.home_fragment_delike_btn);
+        final CommentFragment commentFragment = new CommentFragment();
+        post = postList.get(position);
+        Log.e("go", "post: " + post);
 
-        model = postModels.get(position);
-        holder.home_comment_count_tv.setText(String.valueOf(CommentFragmentAdapter.count) + " comment");
-        holder.home_like_count_tv.setText(String.valueOf(model.getLikes()));
-        holder.home_name_tv.setText(model.getName());
-        holder.home_post_time_tv.setText(model.getTime());
-        holder.home_post_tv.setText(model.getPost().toString());
+        commentFragment.setPostId(post.getPostId());
+        commentNum = post.getCommentNo();
+        holder.home_comment_count_tv.setText(String.valueOf(commentNum) + " comment");
+        holder.home_like_count_tv.setText(post.getLikeNo().toString());
+        if (post.getLikeState() == true) {
+            holder.home_fragment_like_btn.setBackground(shape1);
+        } else {
+            holder.home_fragment_like_btn.setBackground(shape2);
+        }
+
+        User user = new User();
+        user.setId(post.getUserId());
+        holder.home_name_tv.setText("Youssef Seddik");
+
+
+        String date1 = post.getAddedOn();
+        Log.e("go", "Date: " + date1);
+        //Toast.makeText(context, post.getAddedOn(), Toast.LENGTH_LONG).show();
+
+
+        String time = post.getAddedOn();
+        final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        Date date = null;
+        try {
+            date = format.parse(time);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        long startDate = date.getTime();
+        String agoTime = post.getTimeAgo(startDate);
+        holder.home_post_time_tv.setText(agoTime);
+
+
+        holder.home_post_tv.setText(post.getContent());
+//        holder.home_profile_picture_iv.set
 
         holder.fragment_home_comment_ly.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fragmentManager.beginTransaction().addToBackStack("CommentFragment")
-                        .replace(R.id.main_container, new CommentFragment()).commit();
+                        .add(R.id.main_container, commentFragment).commit();
 
             }
         });
 
 
         holder.fragment_home_like_ly.setOnClickListener(new View.OnClickListener() {
+              int countlike = 0 ;
             @Override
             public void onClick(View view) {
-                Drawable shape1 = context.getDrawable(R.drawable.home_fragment_like_btn);
-                Drawable shape2 = context.getDrawable(R.drawable.home_fragment_delike_btn);
-                int count = Integer.parseInt(holder.home_like_count_tv.getText().toString());
-                if (like == false) {
+                Post post = postList.get(position);
+                Toast.makeText(context, post.getPostId().toString(), Toast.LENGTH_SHORT).show();
+                boolean likestatus = post.getLikeState();
+
+                if (likestatus == false) {
+                    countlike = Integer.parseInt(post.getLikeNo().toString());
                     holder.home_fragment_like_btn.setBackground(shape1);
-                    like = true;
-                    count++;
-                    holder.home_like_count_tv.setText(String.valueOf(count));
+                    likestatus = true;
+                    post.setLikeState(likestatus);
+                    countlike+=1;
+                    holder.home_like_count_tv.setText(String.valueOf(countlike));
+                    addLike(post.getUserId(),post.getPostId().toString());
 
 
-                } else if (like == true) {
-
+                }
+                else if (likestatus == true) {
+                    countlike = Integer.parseInt(post.getLikeNo().toString());
                     holder.home_fragment_like_btn.setBackground(shape2);
-                    like = false;
-                    count--;
-                    holder.home_like_count_tv.setText(String.valueOf(count));
+                    likestatus = false;
+                    post.setLikeState(likestatus);
+                    countlike-=1;
+                    if (countlike < 0) {
+                        countlike = 0;
+                    }
+                    holder.home_like_count_tv.setText(String.valueOf(countlike));
+                    removeLike(post.getUserId(),post.getPostId().toString());
+
                 }
 
-
             }
+        }
 
-
-        });
-
-
+        );
     }
+
 
     @Override
     public int getItemCount() {
-        return postModels.size();
+        return postList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView home_name_tv, home_post_time_tv, home_post_tv, home_like_count_tv, home_comment_count_tv;
         ImageView home_profile_picture_iv;
         Button home_fragment_like_btn, home_fragment_comment_btn;
-        LinearLayout fragment_home_like_ly,fragment_home_comment_ly;
+        LinearLayout fragment_home_like_ly, fragment_home_comment_ly;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -131,22 +179,51 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
             home_fragment_comment_btn = itemView.findViewById(R.id.home_fragment_comment_btn);
             fragment_home_like_ly = itemView.findViewById(R.id.fragment_home_like_ly);
             fragment_home_comment_ly = itemView.findViewById(R.id.fragment_home_comment_ly);
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    if(listener != null){
-//                        int position = getAdapterPosition();
-//                        if(position != RecyclerView.NO_POSITION){
-//                            listener.onItemClick(position);
-//                        }
-//                    }
-//
-//                }
-//            });
+
 
         }
+
     }
 
+    public void addLike(String userId, String postId) {
+        ApiInterface apiInterface = RetrofitClient.getClient().create(ApiInterface.class);
+        Call<String> call = apiInterface.addPostLike(userId, postId);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                String responseRecieved = response.body();
+                if (responseRecieved.equals("done")) {
+                    Toast.makeText(context, "Like Added", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void removeLike(String userId, String postId) {
+        ApiInterface apiInterface = RetrofitClient.getClient().create(ApiInterface.class);
+        Call<String> call = apiInterface.removePostLike(userId, postId);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                String responseRecieved = response.body();
+                if (responseRecieved.equals("done")) {
+                    Toast.makeText(context, "Like Removed", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+    }
 
 }
 

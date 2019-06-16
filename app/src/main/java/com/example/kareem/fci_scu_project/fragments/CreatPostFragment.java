@@ -4,31 +4,34 @@ package com.example.kareem.fci_scu_project.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
-
+import com.example.kareem.fci_scu_project.Helpers.Constants;
 import com.example.kareem.fci_scu_project.R;
-import com.example.kareem.fci_scu_project.model.PostModel;
+import com.example.kareem.fci_scu_project.Retrofit.ApiInterface;
+import com.example.kareem.fci_scu_project.Retrofit.RetrofitClient;
 
-import java.util.ArrayList;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CreatPostFragment extends Fragment {
-    public String s;
-    public ArrayList<String> comment = new ArrayList<>();
-    public PostModel postModel;
-    public HomeFragment homeFragment;
-    public View view;
-    public Button fragment_create_post_public_btn, fragment_create_post_private_btn, fragment_create_post_btn;
-    public EditText fragment_create_post_content_tv;
+
+    private HomeFragment homeFragment;
+    private View view;
+    private Button fragment_create_post_btn;
+    private EditText fragment_create_post_content_tv;
+    String userId = Constants.USER_DATA.getId();
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,74 +41,44 @@ public class CreatPostFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        createItemView(inflater, container, savedInstanceState);
-        handleBtnActions();
-        return view;
-    }
-
-    public void createItemView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_create_post, container, false);
-        fragment_create_post_public_btn = view.findViewById(R.id.fragment_create_post_public_btn);
-        fragment_create_post_private_btn = view.findViewById(R.id.fragment_create_post_private_btn);
+
         fragment_create_post_btn = view.findViewById(R.id.fragment_create_post_btn);
         fragment_create_post_content_tv = view.findViewById(R.id.fragment_create_post_content_tv);
-
-
-    }
-
-    public void createPostItem() {
-        String s = fragment_create_post_content_tv.getText().toString();
-        createCommentItem();
-        postModel = new PostModel(1
-                , 9
-                , comment
-                , "John"
-                , "2 hrs"
-                , s);
-    }
-
-    public void createCommentItem() {
-        comment.add("i love that");
-    }
-
-
-    public void handleBtnActions() {
-        fragment_create_post_private_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-               //old replaceFragment(new SelectStudentFragment());
-
-                //new
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.main_container, new SelectStudentFragment(), "SelectStudentFragment")
-                        .addToBackStack("SelectStudentFragment")
-                        .commit();
-                //new
-
-
-            }
-        });
-
 
         fragment_create_post_btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                createPostItem();
+                createPostCall(userId,fragment_create_post_content_tv.getText().toString());
+            }
+        });
+        return view;
+    }
 
-                homeFragment = new HomeFragment();
-                homeFragment.postModels.add(0, postModel);
-                replaceFragment(homeFragment);
+    public void createPostCall(String userId ,String content) {
+        ApiInterface apiInterface = RetrofitClient.getClient().create(ApiInterface.class);
+        Call<String> call = apiInterface.createPost(userId, content);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+
+                String responseReceived = response.body();
+                if (responseReceived.equals("done")) {
+                    getFragmentManager().beginTransaction().addToBackStack("HomeFragment")
+                            .replace(R.id.main_container, new HomeFragment()).commit();
+                    Toast.makeText(getContext(), "Post Created ", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
             }
         });
     }
-    public void replaceFragment(Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.main_container, fragment);
-        fragmentTransaction.commit();
-    }
-
 }
 
 
