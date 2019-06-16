@@ -4,6 +4,7 @@ package com.example.kareem.fci_scu_project.fragments;
 import android.animation.Animator;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -84,22 +85,25 @@ public class ProfileFragment extends Fragment{
 
     private void setUserData(){
 
-        String url = "https://cdn.shopify.com/s/files/1/0066/6976/2673/articles/cf33c5dd40ea98a6fc7925f1a76001de--guy-style-style-men.jpg?v=1547701975";
-        Glide.with(this)
-                .load(url)
-                .centerCrop()
-                .placeholder(R.mipmap.default_image)
-                .into(userImage);
+        String url = "https://matehub.azurewebsites.net";
+        if(USER_DATA.getProfilePicture() != null){
+            url = url.concat(USER_DATA.getProfilePicture().substring(1));
+            Glide.with(this)
+                    .load(url)
+                    .centerCrop()
+                    .placeholder(R.mipmap.boss)
+                    .into(userImage);
+        }
 
         userName.setText(USER_DATA.getUserName());
         email.setText(USER_DATA.getEmail());
         password.setText(USER_DATA.getPassword());
         phone.setText(USER_DATA.getPhoneNumber());
 //        birthDate.setText(USER_DATA.getBirthDate());
-//        idNum.setText(USER_DATA.getIdNum());
-//        dept.setText(USER_DATA.getDept());
-        level.setText(USER_DATA.getLevel());
-//        progressBar.setVisibility(View.INVISIBLE);
+        idNum.setText(USER_DATA.getNationalId());
+        dept.setText(USER_DATA.getLevel().split(" ")[1]);
+        level.setText(USER_DATA.getLevel().split(" ")[0]);
+        progressBar.setVisibility(View.INVISIBLE);
 
     }
 
