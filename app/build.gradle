@@ -32,7 +32,7 @@ dependencies {
     implementation 'com.android.support:support-v13:27.1.1'
     implementation 'com.android.support:design:27.1.1'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
-    compile 'com.rengwuxian.materialedittext:library:2.1.4'
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
     //for date
     implementation 'com.wdullaer:materialdatetimepicker:3.5.0'
 
@@ -45,7 +45,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
 
     //json parsing
-    implementation 'com.google.code.gson:gson:2.8.4'
+    implementation  'com.google.code.gson:gson:2.8.2'
+//    implementation 'com.google.code.gson:gson:2.8.4'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
 
     // glide
