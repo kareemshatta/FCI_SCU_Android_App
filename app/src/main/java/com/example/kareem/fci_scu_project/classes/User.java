@@ -20,15 +20,18 @@ public class User {
     @SerializedName("PhoneNumber")
     @Expose
     private String phoneNumber;
-    @SerializedName("Level")
+    @SerializedName("National_Id")
     @Expose
-    private String level;
+    private String nationalId;
     @SerializedName("Role")
     @Expose
     private String role;
     @SerializedName("ProfilePicture")
     @Expose
     private String profilePicture;
+    @SerializedName("Level")
+    @Expose
+    private String level;
     @SerializedName("AddedOn")
     @Expose
     private String addedOn;
@@ -38,6 +41,9 @@ public class User {
     @SerializedName("DisConnectedOn")
     @Expose
     private String disConnectedOn;
+    @SerializedName("ConnectedOn")
+    @Expose
+    private Object connectedOn;
 
     public String getId() {
         return id;
@@ -79,12 +85,12 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getLevel() {
-        return level;
+    public String getNationalId() {
+        return nationalId;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
+    public void setNationalId(String nationalId) {
+        this.nationalId = nationalId;
     }
 
     public String getRole() {
@@ -101,6 +107,14 @@ public class User {
 
     public void setProfilePicture(String profilePicture) {
         this.profilePicture = profilePicture;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public String getAddedOn() {
@@ -125,6 +139,14 @@ public class User {
 
     public void setDisConnectedOn(String disConnectedOn) {
         this.disConnectedOn = disConnectedOn;
+    }
+
+    public Object getConnectedOn() {
+        return connectedOn;
+    }
+
+    public void setConnectedOn(Object connectedOn) {
+        this.connectedOn = connectedOn;
     }
 
 }
