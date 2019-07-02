@@ -18,7 +18,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.kareem.fci_scu_project.Helpers.Constants;
 import com.example.kareem.fci_scu_project.R;
+import com.example.kareem.fci_scu_project.classes.User;
 import com.example.kareem.fci_scu_project.fragments.CoursesFragment;
 import com.example.kareem.fci_scu_project.fragments.CreatPostFragment;
 import com.example.kareem.fci_scu_project.fragments.CreateTeamFragment;
@@ -38,6 +40,7 @@ public class HomeActivity extends AppCompatActivity
     public static FloatingActionButton fab;
     public static String flag;
     public static int coursesBack = 0, teamsBack = 0;
+    User user = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,7 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        user = Constants.USER_DATA;
         flag = getIntent().getStringExtra("flag");
 
         navigationView = findViewById(R.id.nav_view);
@@ -197,11 +201,12 @@ public class HomeActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_team) {
 
-            if (flag.equals("student")) {
+
+            if (user.getRole().equals("Students")) {
                 //for student
                 getSupportActionBar().setTitle(R.string.teams_nav_txt);
                 replaceFragment(new CreateTeamFragment());
-            } else if (flag.equals("doctor")) {
+            } else if (user.getRole().equals("Doctors")) {
                 //for doctor
                 getSupportActionBar().setTitle(R.string.teams_nav_txt);
                 replaceFragment(new DoctorTeamsFragment());
