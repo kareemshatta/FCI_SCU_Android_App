@@ -1,16 +1,22 @@
 package com.example.kareem.fci_scu_project.adapters;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.kareem.fci_scu_project.Helpers.Constants;
 import com.example.kareem.fci_scu_project.R;
 import com.example.kareem.fci_scu_project.classes.Comment;
+import com.example.kareem.fci_scu_project.classes.Post;
+import com.example.kareem.fci_scu_project.classes.User;
 import com.example.kareem.fci_scu_project.model.PostModel;
 
 import java.util.ArrayList;
@@ -46,8 +52,14 @@ public class CommentFragmentAdapter extends RecyclerView.Adapter<CommentFragment
     @Override
     public void onBindViewHolder(@NonNull final OkViewHolder holder, int position) {
         Comment comment = comments.get(position);
-//        holder.comment_fragment_profile.setText(comment.);
-        holder.comment_fraggment_text.setText(comment.getContent());
+        holder.comment_fragment_text.setText(comment.getContent());
+
+        User user = Constants.USER_DATA;
+//        Glide.with(context)
+//                .load(Uri.parse(String.valueOf(user.getProfilePicture())))
+//                .into(holder.comment_fragment_profile_picture);
+        holder.comment_fragment_profile_name.setText(user.getUserName());
+
 
 
     }
@@ -59,14 +71,16 @@ public class CommentFragmentAdapter extends RecyclerView.Adapter<CommentFragment
     }
 
     public class OkViewHolder extends RecyclerView.ViewHolder {
-        TextView comment_fragment_profile;
-        TextView comment_fraggment_text;
+        TextView comment_fragment_profile_name;
+        TextView comment_fragment_text;
+        ImageView comment_fragment_profile_picture;
 
 
         public OkViewHolder(View itemView) {
             super(itemView);
-            comment_fragment_profile = itemView.findViewById(R.id.comment_fragment_profile);
-            comment_fraggment_text = itemView.findViewById(R.id.comment_fragment_text);
+            comment_fragment_profile_name = itemView.findViewById(R.id.comment_fragment_profile);
+            comment_fragment_text = itemView.findViewById(R.id.comment_fragment_text);
+            comment_fragment_profile_picture = itemView.findViewById(R.id.comment_fragment_profile_picture);
 
 
         }
