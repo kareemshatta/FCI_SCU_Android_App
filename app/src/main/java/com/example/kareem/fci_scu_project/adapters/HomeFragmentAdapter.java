@@ -34,6 +34,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.kareem.fci_scu_project.Helpers.Constants.USER_DATA;
+
 /**
  * Created by youssef on 1/2/2019.
  */
@@ -108,6 +110,16 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
 
 
         holder.home_post_tv.setText(post.getContent());
+
+        String url = "https://matehub.azurewebsites.net";
+        if(user.getProfilePicture() != null){
+            url = url.concat(USER_DATA.getProfilePicture().substring(1));
+            Glide.with(context)
+                    .load(url)
+                    .centerCrop()
+                    .placeholder(R.mipmap.boss)
+                    .into(holder.home_profile_picture_iv);
+        }
 //        holder.home_profile_picture_iv.set
 //        Glide.with(context)
 //                .load(Uri.parse(String.valueOf(post.getImage())))
