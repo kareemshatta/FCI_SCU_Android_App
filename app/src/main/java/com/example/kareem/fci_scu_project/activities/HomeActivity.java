@@ -17,7 +17,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.kareem.fci_scu_project.R;
 import com.example.kareem.fci_scu_project.fragments.CoursesFragment;
 import com.example.kareem.fci_scu_project.fragments.CreatPostFragment;
@@ -28,6 +31,7 @@ import com.example.kareem.fci_scu_project.fragments.NotificationFragment;
 import com.example.kareem.fci_scu_project.fragments.ProfileFragment;
 
 import static com.example.kareem.fci_scu_project.Helpers.Constants.PREF_KEY;
+import static com.example.kareem.fci_scu_project.Helpers.Constants.USER_DATA;
 
 
 public class HomeActivity extends AppCompatActivity
@@ -38,6 +42,8 @@ public class HomeActivity extends AppCompatActivity
     public static FloatingActionButton fab;
     public static String flag;
     public static int coursesBack = 0, teamsBack = 0;
+    ImageView headerImage;
+    TextView headerUserName , headerLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +55,25 @@ public class HomeActivity extends AppCompatActivity
 
         navigationView = findViewById(R.id.nav_view);
         fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        //navigation header
+//        headerImage = findViewById(R.id.header_image);
+//        headerUserName = findViewById(R.id.header_user_name);
+//        headerLevel = findViewById(R.id.header_department);
+//        String url = "https://matehub.azurewebsites.net";
+//
+//        if(USER_DATA.getProfilePicture() != null){
+//            url = url.concat(USER_DATA.getProfilePicture().substring(1));
+//            Glide.with(this)
+//                    .load(url)
+//                    .centerCrop()
+//                    .placeholder(R.mipmap.boss)
+//                    .into(headerImage);
+//        }
+//        headerUserName.setText(USER_DATA.getUserName());
+//        headerLevel.setText(USER_DATA.getLevel());
+//
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

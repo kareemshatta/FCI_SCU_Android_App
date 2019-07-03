@@ -101,7 +101,8 @@ public class ProfileFragment extends Fragment{
         phone.setText(USER_DATA.getPhoneNumber());
 //        birthDate.setText(USER_DATA.getBirthDate());
         idNum.setText(USER_DATA.getNationalId());
-        dept.setText(USER_DATA.getLevel().split(" ")[1]);
+        //dept.setText(USER_DATA.getLevel().split(" ")[1]);
+        dept.setText(USER_DATA.getRole());
         level.setText(USER_DATA.getLevel().split(" ")[0]);
         progressBar.setVisibility(View.INVISIBLE);
 

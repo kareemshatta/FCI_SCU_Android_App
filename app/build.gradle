@@ -20,7 +20,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
+    repositories {
+        maven {
+            url  "http://dl.bintray.com/lukaville/maven"
+        }
+    }
 }
 
 dependencies {
@@ -54,6 +58,9 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 
     implementation 'com.android.support:multidex:1.0.3'
+
+
+    implementation 'com.nbsp:library:1.8'
 
 
 }

@@ -80,5 +80,7 @@
     <string name="error_confirm_pass_validation">password is not confirmed</string>
     <string name="error_email_validation">Email is empty</string>
     <string name="todo">TODO</string>
+    <string name="msg_loading">Loading</string>
+
 
 </resources>

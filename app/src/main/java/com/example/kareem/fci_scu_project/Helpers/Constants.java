@@ -31,4 +31,10 @@ public class Constants {
     public static Task TASK_DATA = null ;
     public static String COURSE_NAME = "course_name";
 
+    // notifications
+    public static String CHANNEL_ID = "simplified_coding";
+    public static String CHANNEL_NAME = "Simplified Coding";
+    public static String CHANNEL_DESC = "Simplified Coding Notifications";
+
+
 }
