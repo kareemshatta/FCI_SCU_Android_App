@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kareem.fci_scu_project">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.SplashActivity" android:configChanges="orientation"
+        <activity
+            android:name=".activities.TeamsActivity"
+            android:parentActivityName=".activities.CourseDetailsActivity"/>
+        <activity
+            android:name=".activities.CreateTeamActivity"
+            android:parentActivityName=".activities.CourseDetailsActivity" />
+        <activity
+            android:name=".activities.SplashActivity"
+            android:configChanges="orientation"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -24,13 +32,15 @@
         <activity android:name=".activities.LoginActivity" />
         <activity
             android:name=".activities.HomeActivity"
+            android:configChanges="orientation"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="sensorPortrait" android:configChanges="orientation"/>
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.CourseDetailsActivity"
+            android:configChanges="orientation"
             android:parentActivityName=".activities.HomeActivity"
-            android:screenOrientation="sensorPortrait" android:configChanges="orientation"/>
+            android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".activities.CourseTutorialsStudentActivity"
             android:parentActivityName=".activities.CourseDetailsActivity" />
@@ -40,13 +50,16 @@
         <activity
             android:name=".activities.CourseQuizDoctorActivity"
             android:parentActivityName=".activities.CourseDetailsActivity" />
-        <activity android:name=".activities.CourseQuizStudentActivity"
-            android:parentActivityName=".activities.CourseDetailsActivity"/>
-        <activity android:name=".activities.CourseQuizDetailsStudentActivity"
-            android:parentActivityName=".activities.CourseQuizStudentActivity"></activity>
-        <activity android:name=".activities.DoctorTeamsDetailsActivity"
-            android:parentActivityName=".activities.HomeActivity"
-            ></activity>
+        <activity
+            android:name=".activities.CourseQuizStudentActivity"
+            android:parentActivityName=".activities.CourseDetailsActivity" />
+        <activity
+            android:name=".activities.CourseQuizDetailsStudentActivity"
+            android:parentActivityName=".activities.CourseQuizStudentActivity" />
+        <activity
+            android:name=".activities.TeamsDetailsActivity"
+            android:parentActivityName=".activities.TeamsActivity" />
+
     </application>
 
 </manifest>

@@ -11,7 +11,7 @@ import com.example.kareem.fci_scu_project.R;
 
 import java.util.ArrayList;
 
-public class DoctorTeamsDetailsActivity extends AppCompatActivity {
+public class TeamsDetailsActivity extends AppCompatActivity {
     TextView teams_details_doctor_team_name_tv,teams_details_doctor_leader_name_tv;
     ListView teams_details_doctor_members_lv;
     LayoutInflater inflater;

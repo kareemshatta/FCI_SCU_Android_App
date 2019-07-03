@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.kareem.fci_scu_project.R;
-import com.example.kareem.fci_scu_project.activities.DoctorTeamsDetailsActivity;
+import com.example.kareem.fci_scu_project.activities.TeamsDetailsActivity;
 import com.example.kareem.fci_scu_project.model.Teams;
 
 
@@ -22,14 +22,14 @@ import java.util.ArrayList;
  * Created by youssef on 13/2/2019.
  */
 
-public class TeamsFragmentAdapter extends RecyclerView.Adapter<TeamsFragmentAdapter.ViewHolder> {
+public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.ViewHolder> {
 
     Context context;
     FragmentManager fragmentManager;
     Teams team;
     ArrayList<Teams> teams;
 
-    public TeamsFragmentAdapter(Context context, ArrayList<Teams> teams) {
+    public TeamsAdapter(Context context, ArrayList<Teams> teams) {
         this.context = context;
         this.teams = teams;
 
@@ -38,7 +38,7 @@ public class TeamsFragmentAdapter extends RecyclerView.Adapter<TeamsFragmentAdap
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_teams_row, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_teams_row, parent, false);
         return new ViewHolder(view);
     }
 
@@ -50,7 +50,7 @@ public class TeamsFragmentAdapter extends RecyclerView.Adapter<TeamsFragmentAdap
         holder.fragment_teams_row_cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, DoctorTeamsDetailsActivity.class);
+                Intent intent = new Intent(context, TeamsDetailsActivity.class);
                 intent.putExtra("team_name",teamName);
                 context.startActivity(intent);
             }

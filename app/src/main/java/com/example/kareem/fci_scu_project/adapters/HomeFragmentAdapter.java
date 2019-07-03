@@ -47,7 +47,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
     private Post post;
     private FragmentManager fragmentManager;
     private static int commentNum = 0;
-    private User user = null;
 
     public static void refreshCommentNum(int count) {
         commentNum += count;
@@ -87,8 +86,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
             holder.home_fragment_like_btn.setBackground(shape2);
         }
 
-        user = Constants.USER_DATA;
-        holder.home_name_tv.setText(user.getUserName());
+        holder.home_name_tv.setText(post.getUserName());
 
 
         String date1 = post.getAddedOn();
@@ -112,8 +110,9 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
         holder.home_post_tv.setText(post.getContent());
 
         String url = "https://matehub.azurewebsites.net";
-        if(user.getProfilePicture() != null){
-            url = url.concat(USER_DATA.getProfilePicture().substring(1));
+        if(post.getUserPictures() != null){
+            url = url.concat(post.getUserPictures().substring(1));
+            Log.e("url", "Url: "+url);
             Glide.with(context)
                     .load(url)
                     .centerCrop()
@@ -152,7 +151,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
                         countlike += 1;
                         holder.home_like_count_tv.setText(String.valueOf(countlike));
                         post.setLikeNo(countlike);
-                        addLike(user.getId(), post.getPostId().toString());
+                        addLike(post.getUserId(), post.getPostId().toString());
 
 
                     } else if (likestatus == true) {
@@ -167,7 +166,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
                         post.setLikeNo(countlike);
                         holder.home_like_count_tv.setText(String.valueOf(countlike));
                         Toast.makeText(context, post.getUserId(), Toast.LENGTH_SHORT).show();
-                        removeLike(user.getId(), post.getPostId().toString());
+                        removeLike(post.getUserId(), post.getPostId().toString());
 
                     }
                     countlike =0;

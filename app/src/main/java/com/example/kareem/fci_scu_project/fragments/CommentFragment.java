@@ -39,7 +39,7 @@ public class CommentFragment extends Fragment {
     RecyclerView recyclerView;
     EditText comment_fragment_comment;
     Button comment_fragment_comment_send;
-    FloatingActionButton fab = new HomeActivity().fab;
+//    FloatingActionButton fab = new HomeActivity().fab;
     CommentFragmentAdapter commentFragmentAdapter;
     View view;
     List<Comment> comments = null;
@@ -54,7 +54,7 @@ public class CommentFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_comment, container, false);
-        fab.setVisibility(View.INVISIBLE);
+//        fab.setVisibility(View.INVISIBLE);
         comment_fragment_comment = view.findViewById(R.id.comment_fragment_comment);
         comment_fragment_comment_send = view.findViewById(R.id.comment_fragment_send);
         comment_loading_pb = view.findViewById(R.id.comment_loading_pb);
