@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Matehub</string>
+    <string name="app_name">FCI_SCU</string>
     <string name="splash_welcome_txt">Welcome...</string>
     <string name="slide_skip_btn_txt">Skip</string>
     <string name="slide_finish_btn_txt">Finish</string>

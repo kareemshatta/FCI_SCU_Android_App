@@ -1,11 +1,8 @@
 package com.example.kareem.fci_scu_project.activities;
 
 import android.app.Activity;
-import android.app.DownloadManager;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,8 +24,6 @@ public class CourseQuizDetailsStudentActivity extends AppCompatActivity {
     private TextView solutionName;
     private TextView quizDeadline;
     private String solName;
-
-    private DownloadManager downloadManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,16 +53,7 @@ public class CourseQuizDetailsStudentActivity extends AppCompatActivity {
         downloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                final String taskName = TASK_DATA.getTaskName();
-
-                downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-                Uri uri = Uri.parse("https://matehub.azurewebsites.net/Data/Tasks/" + taskName+".pdf");
-                DownloadManager.Request request = new DownloadManager.Request(uri);
-                request.setVisibleInDownloadsUi(true);
-                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, uri.getLastPathSegment());
-                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                long reference = downloadManager.enqueue(request);
+                // download task here
             }
         });
         sendButton.setOnClickListener(new View.OnClickListener() {
