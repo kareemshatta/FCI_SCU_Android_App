@@ -7,15 +7,25 @@ import com.example.kareem.fci_scu_project.classes.PostResponse;
 import com.example.kareem.fci_scu_project.classes.SubjectsResponse;
 import com.example.kareem.fci_scu_project.classes.TasksResponse;
 
+import java.io.File;
+import java.util.Map;
+
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
+import retrofit2.http.PartMap;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
 
     @POST("login")
-    Call<LoginResponse> getUserCall(@Query("name") String name , @Query("pass") String pass);
+    Call<LoginResponse> getUserCall(@Query("name") String name, @Query("pass") String pass);
 
     @GET("subjects")
     Call<SubjectsResponse> getSubjectsCall(@Query("userid") String userId);
@@ -32,7 +42,7 @@ public interface ApiInterface {
     Call<Boolean>forgetPasswordCall(@Query("email") String email);
 
     @POST("editpassword")
-    Call<Boolean> editPasswordCall(@Query("userid") String userId , @Query("newpass") String newPass);
+    Call<Boolean> editPasswordCall(@Query("userid") String userId, @Query("newpass") String newPass);
     @GET("posts")
     Call<PostResponse> getPostsCall(@Query("userid") String userId);
 
@@ -52,7 +62,11 @@ public interface ApiInterface {
     Call<String> deletePost(@Query("postid") String postid);
 
     @POST("addcomment")
-    Call<String> addComment(@Query("userid") String userId, @Query("postid") String postid, @Query("content") String content);;
+    Call<String> addComment(@Query("userid") String userId, @Query("postid") String postid, @Query("content") String content);
+
+    @Multipart
+    @POST("uploadtasksolution")
+    Call<String> upload(@Query("taskid") Integer taskId, @PartMap Map<String, RequestBody> map);
 
 
 
