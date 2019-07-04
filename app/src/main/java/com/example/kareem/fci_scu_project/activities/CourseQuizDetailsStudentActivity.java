@@ -26,24 +26,16 @@ import com.example.kareem.fci_scu_project.Retrofit.RetrofitClient;
 import com.nbsp.materialfilepicker.MaterialFilePicker;
 import com.nbsp.materialfilepicker.ui.FilePickerActivity;
 
-import java.io.DataOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 
 import okhttp3.MediaType;
-import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.Multipart;
-import retrofit2.http.Part;
-
 import static com.example.kareem.fci_scu_project.Helpers.Constants.TASK_DATA;
 
 public class CourseQuizDetailsStudentActivity extends AppCompatActivity {

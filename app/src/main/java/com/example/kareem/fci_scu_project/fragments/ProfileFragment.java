@@ -1,32 +1,24 @@
 package com.example.kareem.fci_scu_project.fragments;
 
 
-import android.animation.Animator;
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.kareem.fci_scu_project.R;
 import com.example.kareem.fci_scu_project.Retrofit.ApiInterface;
 import com.example.kareem.fci_scu_project.Retrofit.RetrofitClient;
-import com.example.kareem.fci_scu_project.adapters.CoursesRecyclerViewAdapter;
-import com.example.kareem.fci_scu_project.classes.SubjectsResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
