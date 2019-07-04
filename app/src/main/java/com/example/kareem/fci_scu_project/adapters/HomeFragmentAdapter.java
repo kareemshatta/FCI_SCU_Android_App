@@ -140,7 +140,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
                 @Override
                 public void onClick(View view) {
                     Post post = postList.get(position);
-                    Toast.makeText(context, post.getPostId().toString(), Toast.LENGTH_SHORT).show();
                     boolean likestatus = post.getLikeState();
 
                     if (likestatus == false) {
@@ -151,7 +150,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
                         countlike += 1;
                         holder.home_like_count_tv.setText(String.valueOf(countlike));
                         post.setLikeNo(countlike);
-                        addLike(post.getUserId(), post.getPostId().toString());
+                        addLike(USER_DATA.getId(), post.getPostId().toString());
 
 
                     } else if (likestatus == true) {
@@ -165,8 +164,7 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter<HomeFragmentAdapte
                         }
                         post.setLikeNo(countlike);
                         holder.home_like_count_tv.setText(String.valueOf(countlike));
-                        Toast.makeText(context, post.getUserId(), Toast.LENGTH_SHORT).show();
-                        removeLike(post.getUserId(), post.getPostId().toString());
+                        removeLike(USER_DATA.getId(), post.getPostId().toString());
 
                     }
                     countlike =0;
