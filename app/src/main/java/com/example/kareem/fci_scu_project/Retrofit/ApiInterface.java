@@ -65,9 +65,9 @@ public interface ApiInterface {
     @POST("addcomment")
     Call<String> addComment(@Query("userid") String userId, @Query("postid") String postid, @Query("content") String content);
 
-    //@Multipart
+    @Multipart
     @POST("uploadtasksolution")
-    Call<String> upload(@Query("taskid") Integer taskId, @Body RequestBody file );
+    Call<String> upload(@Query("taskid") Integer taskId, @PartMap Map<String,RequestBody> map );
 
 
 

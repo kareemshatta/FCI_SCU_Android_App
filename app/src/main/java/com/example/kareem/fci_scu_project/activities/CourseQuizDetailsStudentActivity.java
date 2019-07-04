@@ -178,15 +178,15 @@ public class CourseQuizDetailsStudentActivity extends AppCompatActivity {
             progressBar.setVisibility(View.VISIBLE);
 
             // Map is used to multipart the file using okhttp3.RequestBody
-            //Map<Integer, RequestBody> map = new HashMap<>();
+            Map<String, RequestBody> map = new HashMap<>();
             File f = new File(filePath);
             // Parsing any Media type file
 
             RequestBody file = RequestBody.create(MediaType.parse("application/*"), f);
 
-            //map.put(TASK_DATA.getTaskId(), file);
+            map.put("file", file);
             ApiInterface getResponse = RetrofitClient.getClient().create(ApiInterface.class);
-            Call<String> call = getResponse.upload(TASK_DATA.getTaskId(), file);
+            Call<String> call = getResponse.upload(TASK_DATA.getTaskId(), map);
             call.enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {

@@ -57,22 +57,23 @@ public class HomeActivity extends AppCompatActivity
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
         //navigation header
-//        headerImage = findViewById(R.id.header_image);
-//        headerUserName = findViewById(R.id.header_user_name);
-//        headerLevel = findViewById(R.id.header_department);
-//        String url = "https://matehub.azurewebsites.net";
-//
-//        if(USER_DATA.getProfilePicture() != null){
-//            url = url.concat(USER_DATA.getProfilePicture().substring(1));
-//            Glide.with(this)
-//                    .load(url)
-//                    .centerCrop()
-//                    .placeholder(R.mipmap.boss)
-//                    .into(headerImage);
-//        }
-//        headerUserName.setText(USER_DATA.getUserName());
-//        headerLevel.setText(USER_DATA.getLevel());
-//
+        View headerView = navigationView.getHeaderView(0);
+        headerImage = headerView.findViewById(R.id.header_image);
+        headerUserName = headerView.findViewById(R.id.header_user_name);
+        headerLevel = headerView.findViewById(R.id.header_department);
+        String url = "https://matehub.azurewebsites.net";
+
+        if(USER_DATA.getProfilePicture() != null){
+            url = url.concat(USER_DATA.getProfilePicture().substring(1));
+            Glide.with(this)
+                    .load(url)
+                    .centerCrop()
+                    .placeholder(R.mipmap.boss)
+                    .into(headerImage);
+        }
+        headerUserName.setText(USER_DATA.getUserName());
+        headerLevel.setText(USER_DATA.getLevel());
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
