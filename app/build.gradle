@@ -60,4 +60,5 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
 
 
+    implementation 'com.nbsp:library:1.8'
 }
