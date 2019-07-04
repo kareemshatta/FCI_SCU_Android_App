@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,6 +24,7 @@ import com.example.kareem.fci_scu_project.classes.Post;
 import com.example.kareem.fci_scu_project.classes.PostResponse;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -38,11 +41,11 @@ public class HomeFragment extends Fragment {
     public RecyclerView recyclerView;
     public HomeFragmentAdapter adapter;
     private ProgressBar home_post_loading_pb;
+    private FloatingActionButton fab;
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        HomeActivity.fab.setVisibility(View.VISIBLE);
         super.onCreate(savedInstanceState);
         loadPosts();
 
@@ -52,11 +55,20 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        FloatingActionButton fab = new HomeActivity().fab;
-        fab.setVisibility(View.VISIBLE);
         loadPosts();
         view = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = view.findViewById(R.id.homeRecyclerView);
+        fab = view.findViewById(R.id.fab) ;
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.home_nav_txt);
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.main_container, new CreatPostFragment(), "CreatPostFragment")
+                        .addToBackStack("CreatPostFragment")
+                        .commit();
+            }
+        });
         home_post_loading_pb = view.findViewById(R.id.home_post_loading_pb);
         return view;
     }

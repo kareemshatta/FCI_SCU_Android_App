@@ -4,6 +4,28 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Post {
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserPictures() {
+        return userPictures;
+    }
+
+    public void setUserPictures(String userPictures) {
+        this.userPictures = userPictures;
+    }
+
+    @SerializedName("UserPictures")
+    @Expose
+    private String userPictures;
+    @SerializedName("UserName")
+    @Expose
+    private String userName;
     @SerializedName("Post_Id")
     @Expose
     private Integer postId;
@@ -104,7 +126,7 @@ public class Post {
             time *= 1000;
         }
 
-        long now = System.currentTimeMillis();
+        long now = System.currentTimeMillis() - 36000;
         if (time > now || time <= 0) {
             return null;
         }

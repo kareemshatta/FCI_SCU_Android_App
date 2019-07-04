@@ -62,7 +62,7 @@
     <string name="profile_fragment_birthdate_hint_txt">Birth date ...</string>
     <string name="profile_fragment_id_hint_txt">Identification number ...</string>
     <string name="profile_fragment_department_hint_txt">Department ...</string>
-    <string name="profile_fragment_level_hint_txt" >Level ...</string>
+    <string name="profile_fragment_level_hint_txt">Level ...</string>
     <string name="profile_old_password">Old password ...</string>
     <string name="profile_new_password">New password ...</string>
     <string name="profile_confirm_pass_hint_txt">Confirm password ...</string>
@@ -80,5 +80,6 @@
     <string name="error_confirm_pass_validation">password is not confirmed</string>
     <string name="error_email_validation">Email is empty</string>
     <string name="todo">TODO</string>
+    <string name="course_details_teams_btn_txt">Teams</string>
 
 </resources>

@@ -21,6 +21,8 @@ import com.example.kareem.fci_scu_project.model.PostModel;
 
 import java.util.ArrayList;
 
+import static com.example.kareem.fci_scu_project.Helpers.Constants.USER_DATA;
+
 /**
  * Created by youssef on 6/2/2019.
  */
@@ -55,9 +57,16 @@ public class CommentFragmentAdapter extends RecyclerView.Adapter<CommentFragment
         holder.comment_fragment_text.setText(comment.getContent());
 
         User user = Constants.USER_DATA;
-//        Glide.with(context)
-//                .load(Uri.parse(String.valueOf(user.getProfilePicture())))
-//                .into(holder.comment_fragment_profile_picture);
+        String url = "https://matehub.azurewebsites.net";
+        if(user.getProfilePicture() != null){
+            url = url.concat(USER_DATA.getProfilePicture().substring(1));
+            Glide.with(context)
+                    .load(url)
+                    .centerCrop()
+                    .placeholder(R.mipmap.boss)
+                    .into(holder.comment_fragment_profile_picture);
+        }
+
         holder.comment_fragment_profile_name.setText(user.getUserName());
 
 
