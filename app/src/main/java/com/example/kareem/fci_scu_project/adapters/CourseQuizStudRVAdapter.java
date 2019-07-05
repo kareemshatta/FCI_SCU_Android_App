@@ -2,11 +2,13 @@ package com.example.kareem.fci_scu_project.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -49,8 +51,12 @@ public class CourseQuizStudRVAdapter extends RecyclerView.Adapter<CourseQuizStud
                 TASK_DATA = taskList.get(position);
                 Intent intent = new Intent(context, CourseQuizDetailsStudentActivity.class);
                 context.startActivity(intent);
+
+
+
             }
         });
+        holder.nextBtn.setBackgroundResource(R.drawable.ic_task_done);
 
     }
 
@@ -71,8 +77,6 @@ public class CourseQuizStudRVAdapter extends RecyclerView.Adapter<CourseQuizStud
         }
 
     }
-
-
 
 
 }

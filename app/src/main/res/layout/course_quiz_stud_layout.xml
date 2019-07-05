@@ -23,9 +23,9 @@
 
     <ImageButton
         android:id="@+id/course_quiz_stud_imageButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_gravity="center"
-        android:background="@drawable/ic_next"
-        android:backgroundTint="@color/colorDrawerBG" />
+        android:layout_marginRight="8dp"
+        android:background="@drawable/ic_next"/>
 </LinearLayout>

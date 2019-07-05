@@ -40,17 +40,13 @@ public class CommentFragmentAdapter extends RecyclerView.Adapter<CommentFragment
         this.fragmentManager = fragmentManager;
         this.comments = comments;
 
-
-
     }
-
     @NonNull
     @Override
     public OkViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_comment_row, parent, false);
         return new OkViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull final OkViewHolder holder, int position) {
         Comment comment = comments.get(position);
@@ -68,8 +64,6 @@ public class CommentFragmentAdapter extends RecyclerView.Adapter<CommentFragment
         }
 
         holder.comment_fragment_profile_name.setText(user.getUserName());
-
-
 
     }
 

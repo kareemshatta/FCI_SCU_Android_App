@@ -9,8 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.kareem.fci_scu_project.Helpers.Constants;
 import com.example.kareem.fci_scu_project.R;
 import com.example.kareem.fci_scu_project.Retrofit.ApiInterface;
@@ -19,6 +22,8 @@ import com.example.kareem.fci_scu_project.Retrofit.RetrofitClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.example.kareem.fci_scu_project.Helpers.Constants.USER_DATA;
 
 
 /**
@@ -31,6 +36,8 @@ public class CreatPostFragment extends Fragment {
     private Button fragment_create_post_btn;
     private EditText fragment_create_post_content_tv;
     String userId = Constants.USER_DATA.getId();
+    private ImageView userImage;
+    private TextView userName;
 
 
     @Override
@@ -42,6 +49,25 @@ public class CreatPostFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_create_post, container, false);
+
+        ////////////////////////////////////////////////////////////////////////////////////
+
+        userImage = view.findViewById(R.id.fragment_create_post_profile_image);
+        userName = view.findViewById(R.id.fragment_create_post_profile_name_tv);
+        String url = "https://matehub.azurewebsites.net";
+        if(USER_DATA.getProfilePicture() != null){
+            url = url.concat(USER_DATA.getProfilePicture().substring(1));
+            Glide.with(this)
+                    .load(url)
+                    .centerCrop()
+                    .placeholder(R.mipmap.boss)
+                    .into(userImage);
+        }
+
+        userName.setText(USER_DATA.getUserName());
+
+        ////////////////////////////////////////////////////////////////////////////////////
+
 
         fragment_create_post_btn = view.findViewById(R.id.fragment_create_post_btn);
         fragment_create_post_content_tv = view.findViewById(R.id.fragment_create_post_content_tv);

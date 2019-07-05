@@ -34,6 +34,7 @@
     <string name="course_add_quiz_teamRadio_txt">Team</string>
     <string name="course_add_quiz_indivRadio_txt">Individual</string>
     <string name="course_add_quiz_deadline_txt">Deadline :</string>
+    <string name="course_add_quiz_deadlinee_txt">Deadline</string>
     <string name="course_add_quiz_name_txt">Quiz</string>
     <string name="course_quiz_det_stud_downloadBtn_txt">Download Quiz</string>
     <string name="course_quiz_det_quizType_txt">Quiz type :</string>
@@ -79,7 +80,9 @@
     <string name="error_old_pass_validation">password is wrong</string>
     <string name="error_confirm_pass_validation">password is not confirmed</string>
     <string name="error_email_validation">Email is empty</string>
-    <string name="todo">TODO</string>
     <string name="course_details_teams_btn_txt">Teams</string>
+    <string name="heading">heading</string>
+    <string name="text_awesome">text awesome</string>
+    <string name="todo">Todo</string>
 
 </resources>

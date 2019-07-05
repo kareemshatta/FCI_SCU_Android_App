@@ -9,14 +9,13 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorWhite"
-        >
+        android:background="@color/colorWhite">
 
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/circleImageView"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:id="@+id/fragment_create_post_profile_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:src="@drawable/ic_user_image"
@@ -33,8 +32,8 @@
             android:text="@string/fragment_home_profile_name"
             android:textColor="@color/colorDrawerBG"
             android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/circleImageView"
-            app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+            app:layout_constraintStart_toEndOf="@+id/fragment_create_post_profile_image"
+            app:layout_constraintTop_toTopOf="@+id/fragment_create_post_profile_image" />
 
         <EditText
             android:id="@+id/fragment_create_post_content_tv"
@@ -45,8 +44,8 @@
             android:hint="What you are thinking ?"
             android:inputType="text"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintStart_toStartOf="@+id/circleImageView"
-            app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
+            app:layout_constraintStart_toStartOf="@+id/fragment_create_post_profile_image"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_create_post_profile_image" />
 
         <Button
             android:id="@+id/fragment_create_post_public_btn"
