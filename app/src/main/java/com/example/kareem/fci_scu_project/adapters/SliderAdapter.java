@@ -33,6 +33,8 @@ public class SliderAdapter extends PagerAdapter {
             "help you to create homogenous team, Team meeting and Finding suitable time for meeting.\n"
     };
 
+
+
     public SliderAdapter(Context context ) {
         this.context = context;
     }
