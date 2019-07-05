@@ -42,6 +42,8 @@ public class CourseTutorialsStudentActivity extends AppCompatActivity{
         progressBar = findViewById(R.id.tut_stud_progressBar);
         progressBar.setVisibility(View.VISIBLE);
         getMaterials();
+
+
     }
     private void getMaterials(){
 
