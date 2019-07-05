@@ -23,6 +23,7 @@ public class CreateTeamActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_team);
+        getSupportActionBar().setTitle(R.string.create_team_nav_txt);
         fragment_create_team_name_et = findViewById(R.id.fragment_create_team_name_et);
         fragment_create_team_leader_selected_tv = findViewById(R.id.fragment_create_team_leader_selected_tv);
         fragment_create_team_member_selected_tv = findViewById(R.id.fragment_create_team_member_selected_tv);
