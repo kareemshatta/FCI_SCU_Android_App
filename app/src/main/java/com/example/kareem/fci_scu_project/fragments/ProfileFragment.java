@@ -14,11 +14,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.kareem.fci_scu_project.R;
 import com.example.kareem.fci_scu_project.Retrofit.ApiInterface;
 import com.example.kareem.fci_scu_project.Retrofit.RetrofitClient;
+import com.example.kareem.fci_scu_project.classes.ForgetResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,6 +39,7 @@ public class ProfileFragment extends Fragment{
     private ImageView userImage;
     private Button editPassBtn;
     private ProgressBar progressBar;
+    private ForgetResponse forgetResponse;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -125,37 +128,34 @@ public class ProfileFragment extends Fragment{
 
                     ApiInterface apiInterface = RetrofitClient.getClient().create(ApiInterface.class);
 
-                    Call<Boolean> call = apiInterface.editPasswordCall(USER_DATA.getId() ,newPass.getText().toString());
-                    call.enqueue(new Callback<Boolean>() {
+                    Call<ForgetResponse> call = apiInterface.editPasswordCall(USER_DATA.getId() ,newPass.getText().toString());
+                    call.enqueue(new Callback<ForgetResponse>() {
                         @Override
-                        public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-//                        subjectsResponse = response.body();
-//                        boolean status = subjectsResponse.getStatus();
-//
-//                        if (status) {
-//
-//
-//                            subjectList = subjectsResponse.getSubjects();
-////                        Toast.makeText(getActivity().getBaseContext(), ""+subjectList.size(), Toast.LENGTH_SHORT).show();
-//
-//                        } else {
-//                            String message = response.message();
-//                            Toast.makeText(getActivity().getBaseContext(), "Error : " + message, Toast.LENGTH_SHORT).show();
-//                        }
-                            dialog.dismiss();
+                        public void onResponse(Call<ForgetResponse> call, Response<ForgetResponse> response) {
+                            forgetResponse = response.body();
+                            boolean status = forgetResponse.getStatus();
+
+                            if (status) {
+
+
+//                                subjectList = subjectsResponse.getSubjects();
+                                Toast.makeText(getActivity().getBaseContext(),"Succeccful password editing", Toast.LENGTH_SHORT).show();
+
+                                dialog.dismiss();
+
+                            }
                         }
 
                         @Override
-                        public void onFailure(Call<Boolean> call, Throwable t) {
-                            Log.i("Error", "onFailure: "+t.getMessage());
+                        public void onFailure(Call<ForgetResponse> call, Throwable t) {
+                            Log.i("Error", "onFailure: " + t.getMessage());
                         }
                     });
+
                 }
 
             }
 
         });
-
-
     }
 }

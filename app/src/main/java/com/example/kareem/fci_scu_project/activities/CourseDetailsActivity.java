@@ -46,8 +46,8 @@ public class CourseDetailsActivity extends AppCompatActivity {
         teamsBtn = findViewById(R.id.course_details_teams_btn);
         spinner = findViewById(R.id.course_details_spinner);
 
-        Toast.makeText(this, USER_ROLE, Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, SUBJECT_ID.toString(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, USER_ROLE, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, SUBJECT_ID.toString(), Toast.LENGTH_SHORT).show();
 
 
         List<String> listOFYears = new ArrayList<>();

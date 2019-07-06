@@ -1,6 +1,7 @@
 package com.example.kareem.fci_scu_project.Retrofit;
 
 import com.example.kareem.fci_scu_project.classes.CommentResponse;
+import com.example.kareem.fci_scu_project.classes.ForgetResponse;
 import com.example.kareem.fci_scu_project.classes.LoginResponse;
 import com.example.kareem.fci_scu_project.classes.MaterialResponse;
 import com.example.kareem.fci_scu_project.classes.PostResponse;
@@ -36,13 +37,12 @@ public interface ApiInterface {
     @GET("tasks")
     Call<TasksResponse> getTasksCall(@Query("subjectid") Integer subjectId);
 
-//mstany eldesha
+    @POST("forgetpassword")
+    Call<ForgetResponse> forgetPasswordCall(@Query("email") String email);
 
-    @POST("forgetPassword")
-    Call<Boolean>forgetPasswordCall(@Query("email") String email);
+    @POST("changepassword")
+    Call<ForgetResponse> editPasswordCall(@Query("userid") String userId, @Query("password") String newPass);
 
-    @POST("editpassword")
-    Call<Boolean> editPasswordCall(@Query("userid") String userId, @Query("newpass") String newPass);
     @GET("posts")
     Call<PostResponse> getPostsCall(@Query("userid") String userId);
 

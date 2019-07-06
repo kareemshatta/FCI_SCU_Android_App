@@ -141,7 +141,7 @@ public class CourseQuizDoctorActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //adding tutorial here.
+                //adding task here.
                 Task task = new Task();
                 task.setTaskName(quzName);
                 taskList.add(task);
