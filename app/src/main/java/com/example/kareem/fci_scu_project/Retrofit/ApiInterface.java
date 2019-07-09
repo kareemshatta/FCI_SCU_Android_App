@@ -1,24 +1,25 @@
 package com.example.kareem.fci_scu_project.Retrofit;
 
 import com.example.kareem.fci_scu_project.classes.CommentResponse;
+import com.example.kareem.fci_scu_project.classes.ForgetResponse;
 import com.example.kareem.fci_scu_project.classes.LoginResponse;
 import com.example.kareem.fci_scu_project.classes.MaterialResponse;
 import com.example.kareem.fci_scu_project.classes.PostResponse;
 import com.example.kareem.fci_scu_project.classes.SubjectsResponse;
 import com.example.kareem.fci_scu_project.classes.TasksResponse;
-import com.example.kareem.fci_scu_project.classes.Team;
-import com.example.kareem.fci_scu_project.classes.TeamDetails;
-import com.example.kareem.fci_scu_project.classes.TeamsResponse;
-import com.example.kareem.fci_scu_project.classes.UserResponse;
 
-import java.util.List;
+import java.io.File;
 import java.util.Map;
 
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.PartMap;
 import retrofit2.http.Query;
 
@@ -36,13 +37,11 @@ public interface ApiInterface {
     @GET("tasks")
     Call<TasksResponse> getTasksCall(@Query("subjectid") Integer subjectId);
 
-//mstany eldesha
+    @POST("forgetpassword")
+    Call<ForgetResponse> forgetPasswordCall(@Query("email") String email);
 
-    @POST("forgetPassword")
-    Call<Boolean> forgetPasswordCall(@Query("email") String email);
-
-    @POST("editpassword")
-    Call<Boolean> editPasswordCall(@Query("userid") String userId, @Query("newpass") String newPass);
+    @POST("changepassword")
+    Call<ForgetResponse> editPasswordCall(@Query("userid") String userId, @Query("password") String newPass);
 
     @GET("posts")
     Call<PostResponse> getPostsCall(@Query("userid") String userId);
@@ -69,17 +68,8 @@ public interface ApiInterface {
     @POST("uploadtasksolution")
     Call<String> upload(@Query("taskid") Integer taskId, @PartMap Map<String, RequestBody> map);
 
-    @GET("users")
-    Call<UserResponse> getStudents();
-
-    @POST("createteam")
-    Call<String> createTeam(@Query("subjectid") String subjectid, @Query("leaderid") String leaderid, @Query("teamname") String teamname, @Query("members") List<String> members);
 
 
-    @GET("allteams")
-    Call<TeamsResponse> getSubjectTeams(@Query("subjectid") String userId);
 
-    @GET("team")
-    Call<TeamDetails> getTeamDetails(@Query("teamid") String teamid);
 
 }

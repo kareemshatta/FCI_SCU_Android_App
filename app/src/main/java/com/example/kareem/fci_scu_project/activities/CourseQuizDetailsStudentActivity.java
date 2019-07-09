@@ -103,7 +103,7 @@ public class CourseQuizDetailsStudentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //handle send btn here ....
                 uploadFile();
-                //new UploadFileAsync(getBaseContext()).execute("");
+
             }
         });
 

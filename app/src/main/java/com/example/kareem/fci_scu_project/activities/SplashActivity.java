@@ -39,13 +39,12 @@ public class SplashActivity extends AppCompatActivity {
     private void init() {
         Animation animation = AnimationUtils.loadAnimation(this,R.anim.splash_logo_anim);
         splashLogo.startAnimation(animation);
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 process();
             }
-        },0);
+        },2000);
 
     }
 
@@ -72,7 +71,7 @@ public class SplashActivity extends AppCompatActivity {
         if (isUserLogged) {
             mainIntent = new Intent(SplashActivity.this, HomeActivity.class);
         } else {
-            mainIntent = new Intent(SplashActivity.this, LoginActivity.class);
+            mainIntent = new Intent(SplashActivity.this, SlideActivity.class);
         }
 
         startActivity(mainIntent);

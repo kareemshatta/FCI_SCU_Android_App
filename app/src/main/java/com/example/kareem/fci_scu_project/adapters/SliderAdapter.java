@@ -18,20 +18,22 @@ public class SliderAdapter extends PagerAdapter {
     private LayoutInflater layoutInflater;
 
     private int[] slideIcons = {
-            R.drawable.ic_launcher_foreground,
-            R.drawable.ic_launcher_foreground,
-            R.drawable.ic_launcher_foreground
+            R.drawable.ic_chating,
+            R.drawable.ic_material,
+            R.drawable.ic_groups
     };
     private String[] slideHeading = {
-            "heading 1",
-            "heading 2",
-            "heading 3"
+            "Intercommunication",
+            "Educational services ",
+            "Team work"
     };
     private String[] slideDesc = {
-            "desc1",
-            "desc2",
-            "desc3"
+            "Help you to intercommunication between the teaching staff and students.",
+            "help you to share materials, Assignments, Follow-up and Discussions.",
+            "help you to create homogenous team, Team meeting and Finding suitable time for meeting.\n"
     };
+
+
 
     public SliderAdapter(Context context ) {
         this.context = context;
@@ -60,6 +62,7 @@ public class SliderAdapter extends PagerAdapter {
         desc.setText(slideDesc[position]);
         container.addView(view);
         return view;
+
     }
 
     @Override

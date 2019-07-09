@@ -9,14 +9,13 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorWhite"
-        >
+        android:background="@color/colorWhite">
 
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/fragment_create_post_profile_picture_iv"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:id="@+id/fragment_create_post_profile_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:src="@drawable/ic_user_image"
@@ -28,13 +27,13 @@
             android:id="@+id/fragment_create_post_profile_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:text="@string/fragment_home_profile_name"
             android:textColor="@color/colorDrawerBG"
             android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/fragment_create_post_profile_picture_iv"
-            app:layout_constraintTop_toTopOf="@+id/fragment_create_post_profile_picture_iv" />
+            app:layout_constraintStart_toEndOf="@+id/fragment_create_post_profile_image"
+            app:layout_constraintTop_toTopOf="@+id/fragment_create_post_profile_image" />
 
         <EditText
             android:id="@+id/fragment_create_post_content_tv"
@@ -42,31 +41,63 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
             android:hint="What you are thinking ?"
             android:inputType="text"
             android:textColor="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="@+id/fragment_create_post_profile_image"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_create_post_profile_image" />
+
+        <Button
+            android:id="@+id/fragment_create_post_public_btn"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="72dp"
+            android:background="@drawable/btn_corner_redius"
+            android:text="Public"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@+id/fragment_create_post_private_btn"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/fragment_create_post_content_tv"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_create_post_content_tv" />
+
+        <Button
+            android:id="@+id/fragment_create_post_private_btn"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/btn_corner_redius"
+            android:text="private"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_create_post_profile_picture_iv" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_create_post_content_tv" />
 
         <Button
             android:id="@+id/fragment_create_post_btn"
             android:layout_width="128dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/btn_corner_redius"
             android:text="Post"
             android:textAllCaps="false"
             android:textColor="@color/colorWhite"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintEnd_toEndOf="@+id/fragment_create_post_private_btn"
+            app:layout_constraintHorizontal_bias="0.458"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_create_post_content_tv" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/fragment_create_post_public_btn"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_create_post_private_btn" />
 
     </android.support.constraint.ConstraintLayout>
 </FrameLayout>

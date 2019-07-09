@@ -35,8 +35,9 @@ public class CreatPostFragment extends Fragment {
     private View view;
     private Button fragment_create_post_btn;
     private EditText fragment_create_post_content_tv;
-    private TextView fragment_create_post_profile_name_tv;
-    private ImageView fragment_create_post_profile_picture_iv;
+    String userId = Constants.USER_DATA.getId();
+    private ImageView userImage;
+    private TextView userName;
 
 
     @Override
@@ -49,27 +50,33 @@ public class CreatPostFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_create_post, container, false);
 
-        fragment_create_post_btn = view.findViewById(R.id.fragment_create_post_btn);
-        fragment_create_post_content_tv = view.findViewById(R.id.fragment_create_post_content_tv);
-        fragment_create_post_profile_name_tv = view.findViewById(R.id.fragment_create_post_profile_name_tv);
-        fragment_create_post_profile_picture_iv = view.findViewById(R.id.fragment_create_post_profile_picture_iv);
+        ////////////////////////////////////////////////////////////////////////////////////
 
-        fragment_create_post_profile_name_tv.setText(Constants.USER_DATA.getUserName());
-
+        userImage = view.findViewById(R.id.fragment_create_post_profile_image);
+        userName = view.findViewById(R.id.fragment_create_post_profile_name_tv);
         String url = "https://matehub.azurewebsites.net";
         if(USER_DATA.getProfilePicture() != null){
             url = url.concat(USER_DATA.getProfilePicture().substring(1));
-            Glide.with(getContext())
+            Glide.with(this)
                     .load(url)
                     .centerCrop()
                     .placeholder(R.mipmap.boss)
-                    .into(fragment_create_post_profile_picture_iv);
+                    .into(userImage);
         }
+
+        userName.setText(USER_DATA.getUserName());
+
+        ////////////////////////////////////////////////////////////////////////////////////
+
+
+        fragment_create_post_btn = view.findViewById(R.id.fragment_create_post_btn);
+        fragment_create_post_content_tv = view.findViewById(R.id.fragment_create_post_content_tv);
+
         fragment_create_post_btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                createPostCall(Constants.USER_DATA.getId(),fragment_create_post_content_tv.getText().toString());
+                createPostCall(userId,fragment_create_post_content_tv.getText().toString());
             }
         });
         return view;
@@ -99,4 +106,5 @@ public class CreatPostFragment extends Fragment {
         });
     }
 }
+
 

@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.kareem.fci_scu_project.R;
 import com.example.kareem.fci_scu_project.Retrofit.ApiInterface;
 import com.example.kareem.fci_scu_project.Retrofit.RetrofitClient;
+import com.example.kareem.fci_scu_project.classes.ForgetResponse;
 import com.example.kareem.fci_scu_project.classes.LoginResponse;
 import com.example.kareem.fci_scu_project.classes.User;
 import com.google.gson.Gson;
@@ -42,6 +43,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private String name , pass;
     private User user;
     private LoginResponse loginResponse;
+    private ForgetResponse forgetResponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,54 +69,55 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (dialogWindow != null) {
             dialog.getWindow().getAttributes().width = getResources().getDisplayMetrics().widthPixels;
         }
+
+        final EditText et_email = dialog.findViewById(R.id.forget_password_textview);
+        Button btnSend = dialog.findViewById(R.id.forget_password_send_btn);
+
         dialog.show();
 
-        Button btnSend = dialog.findViewById(R.id.forget_password_send_btn);
-        final EditText et_email = dialog.findViewById(R.id.forget_password_textview);
-        final String email = et_email.getText().toString();
-//        Toast.makeText(LoginActivity.this, email, Toast.LENGTH_SHORT).show();
 
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (email.isEmpty()){
-//                    et_email.setError(getResources().getString(R.string.error_email_validation));
-//                }else {
+
+                final String email = et_email.getText().toString().trim();
+                //Toast.makeText(LoginActivity.this, email, Toast.LENGTH_SHORT).show();
+
+                if (email.isEmpty()) {
+                    et_email.setError(getResources().getString(R.string.error_email_validation));
+                } else {
 
                     ApiInterface apiInterface = RetrofitClient.getClient().create(ApiInterface.class);
 
-                    Call<Boolean> call = apiInterface.forgetPasswordCall(email);
-                    call.enqueue(new Callback<Boolean>() {
+                    Call<ForgetResponse> call = apiInterface.forgetPasswordCall(email);
+                    call.enqueue(new Callback<ForgetResponse>() {
                         @Override
-                        public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-//                        subjectsResponse = response.body();
-//                        boolean status = subjectsResponse.getStatus();
-//
-//                        if (status) {
-//
-//
-//                            subjectList = subjectsResponse.getSubjects();
-//                            Toast.makeText(getActivity().getBaseContext(), ""+subjectList.size(), Toast.LENGTH_SHORT).show();
-//
-//                        } else {
-//                            String message = response.message();
-//                            Toast.makeText(getActivity().getBaseContext(), "Error : " + message, Toast.LENGTH_SHORT).show();
-//                        }
-                            dialog.dismiss();
+                        public void onResponse(Call<ForgetResponse> call, Response<ForgetResponse> response) {
+                            forgetResponse = response.body();
+                            boolean status = forgetResponse.getStatus();
+
+                            if (status) {
+
+                                Toast.makeText(getBaseContext(), "Check your inbox", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                            }else{
+                                Toast.makeText(getBaseContext(), "Try again...", Toast.LENGTH_SHORT).show();
+                            }
+
+
                         }
 
                         @Override
-                        public void onFailure(Call<Boolean> call, Throwable t) {
-                            Log.i("Error", "onFailure: "+t.getMessage());
+                        public void onFailure(Call<ForgetResponse> call, Throwable t) {
+                            Toast.makeText(getBaseContext(), "unsuccessful process", Toast.LENGTH_SHORT).show();
+
                         }
+
                     });
-//                }
+                }
             }
 
         });
-
-
-
     }
     boolean vaildateData() {
         boolean isValid = true;
