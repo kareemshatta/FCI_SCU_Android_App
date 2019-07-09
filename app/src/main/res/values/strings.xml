@@ -46,6 +46,8 @@
     <string name="logout_nav_txt">Logout</string>
     <string name="profile_nav_txt">Profile</string>
     <string name="create_team_nav_txt">Create Team</string>
+    <string name="select_student_txt">Select Student</string>
+
 
 
 
@@ -84,5 +86,6 @@
     <string name="error_email_validation">Email is empty</string>
     <string name="todo">TODO</string>
     <string name="course_details_teams_btn_txt">Teams</string>
+    <string name="team_create_team">Create Team</string>
 
 </resources>

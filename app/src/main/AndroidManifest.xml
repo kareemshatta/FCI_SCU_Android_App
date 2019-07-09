@@ -13,7 +13,9 @@
         android:roundIcon="@drawable/app_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.SelectStudentActivity"></activity>
+        <activity android:name=".activities.SelectStudentActivity"
+            android:parentActivityName=".activities.CreateTeamActivity"
+            ></activity>
         <activity
             android:name=".activities.TeamsActivity"
             android:parentActivityName=".activities.CourseDetailsActivity" />
@@ -60,7 +62,7 @@
             android:name=".activities.CourseQuizDetailsStudentActivity"
             android:parentActivityName=".activities.CourseQuizStudentActivity" />
         <activity
-            android:name=".activities.TeamsDetailsActivity"
+            android:name=".activities.TeamDetailsActivity"
             android:parentActivityName=".activities.TeamsActivity" />
     </application>
 
