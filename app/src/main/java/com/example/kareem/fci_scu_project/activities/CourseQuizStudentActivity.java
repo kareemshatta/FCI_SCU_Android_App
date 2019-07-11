@@ -29,7 +29,7 @@ public class CourseQuizStudentActivity extends AppCompatActivity {
 
     private List<Task> taskList;
     private RecyclerView quizRecyclerView;
-    private CourseQuizStudRVAdapter rvAdapter;
+    public static CourseQuizStudRVAdapter rvAdapter;
     private TasksResponse tasksResponse;
     private ProgressBar progressBar;
 
@@ -84,6 +84,5 @@ public class CourseQuizStudentActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }

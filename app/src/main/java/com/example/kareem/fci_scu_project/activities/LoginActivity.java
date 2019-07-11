@@ -89,14 +89,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                     ApiInterface apiInterface = RetrofitClient.getClient().create(ApiInterface.class);
 
-                    Call<ForgetResponse> call = apiInterface.forgetPasswordCall(email);
-                    call.enqueue(new Callback<ForgetResponse>() {
+                    Call<String> call = apiInterface.forgetPasswordCall(email);
+                    call.enqueue(new Callback<String>() {
                         @Override
-                        public void onResponse(Call<ForgetResponse> call, Response<ForgetResponse> response) {
-                            forgetResponse = response.body();
-                            boolean status = forgetResponse.getStatus();
+                        public void onResponse(Call<String> call, Response<String> response) {
+//                            forgetResponse = response.body();
+//                            boolean status = forgetResponse.getStatus();
 
-                            if (status) {
+                            if (response.isSuccessful()) {
 
                                 Toast.makeText(getBaseContext(), "Check your inbox", Toast.LENGTH_SHORT).show();
                                 dialog.dismiss();
@@ -108,7 +108,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
 
                         @Override
-                        public void onFailure(Call<ForgetResponse> call, Throwable t) {
+                        public void onFailure(Call<String> call, Throwable t) {
                             Toast.makeText(getBaseContext(), "unsuccessful process", Toast.LENGTH_SHORT).show();
 
                         }

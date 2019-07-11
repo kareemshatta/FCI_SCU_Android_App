@@ -8,19 +8,11 @@ import com.example.kareem.fci_scu_project.classes.PostResponse;
 import com.example.kareem.fci_scu_project.classes.SubjectsResponse;
 import com.example.kareem.fci_scu_project.classes.TasksResponse;
 
-import java.io.File;
-import java.util.Map;
-
 import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.Part;
-import retrofit2.http.PartMap;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
@@ -38,7 +30,7 @@ public interface ApiInterface {
     Call<TasksResponse> getTasksCall(@Query("subjectid") Integer subjectId);
 
     @POST("forgetpassword")
-    Call<ForgetResponse> forgetPasswordCall(@Query("email") String email);
+    Call<String> forgetPasswordCall(@Query("email") String email);
 
     @POST("changepassword")
     Call<ForgetResponse> editPasswordCall(@Query("userid") String userId, @Query("password") String newPass);
@@ -64,12 +56,27 @@ public interface ApiInterface {
     @POST("addcomment")
     Call<String> addComment(@Query("userid") String userId, @Query("postid") String postid, @Query("content") String content);
 
-    @Multipart
+//    @Multipart
+//    @POST("uploadtasksolution")
+//    Call<String> uploadSolution(@Query("taskid") Integer taskId, @Query("userid") String userId, @Part MultipartBody.Part file, @Part("file") RequestBody name);
+
+
     @POST("uploadtasksolution")
-    Call<String> upload(@Query("taskid") Integer taskId, @PartMap Map<String, RequestBody> map);
+    Call<String> uploadSolution(@Query("taskid") Integer taskId, @Query("userid") String userId, @Query("filename") String filename, @Body RequestBody requestBody);
+
+
+    @POST("uploadmaterials")
+    Call<String> uploadMaterialCall(@Query("subjectid") Integer subjectId, @Query("filename") String filename, @Query("filesize") Long fileSize, @Body RequestBody requestBody);
 
 
 
+    @POST("addtask")
+    Call<String> uploadQuizCall(@Query("subjectid") Integer subjectId, @Query("filename") String filename, @Query("taskname") String taskName,@Query("taskprovider") String taskProvider, @Query("date") String date ,@Query("time") String time, @Body RequestBody requestBody);
 
+    @POST("deletematerial")
+    Call<String> deleteMaterialCall(@Query("id") Integer materialId);
+
+    @POST("deletetask")
+    Call<String> deleteTaskCall(@Query("id") Integer taskId);
 
 }

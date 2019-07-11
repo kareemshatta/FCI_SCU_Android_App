@@ -29,6 +29,17 @@ public class Task {
     @SerializedName("Subject_Id")
     @Expose
     private Integer subjectId;
+    @SerializedName("solved")
+    @Expose
+    private Boolean isSolved;
+
+    public Boolean getSolved() {
+        return isSolved;
+    }
+
+    public void setSolved(Boolean solved) {
+        isSolved = solved;
+    }
 
     public Integer getTaskId() {
         return taskId;

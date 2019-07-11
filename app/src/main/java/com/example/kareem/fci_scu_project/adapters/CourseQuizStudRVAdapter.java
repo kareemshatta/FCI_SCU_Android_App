@@ -44,19 +44,27 @@ public class CourseQuizStudRVAdapter extends RecyclerView.Adapter<CourseQuizStud
 
     @Override
     public void onBindViewHolder(final CourseQuizStudRVAdapter.MyViewHolder holder, final int position) {
+
         holder.quizName.setText(taskList.get(position).getTaskName());
-        holder.nextBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                TASK_DATA = taskList.get(position);
-                Intent intent = new Intent(context, CourseQuizDetailsStudentActivity.class);
-                context.startActivity(intent);
+        if (taskList.get(position).getSolved()){
 
+            holder.nextBtn.setEnabled(false);
+            holder.nextBtn.setBackgroundResource(R.drawable.ic_task_done);
 
+        }else{
 
-            }
-        });
-        holder.nextBtn.setBackgroundResource(R.drawable.ic_task_done);
+            holder.nextBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    TASK_DATA = taskList.get(position);
+                    Intent intent = new Intent(context, CourseQuizDetailsStudentActivity.class);
+                    context.startActivity(intent);
+
+                }
+            });
+            holder.nextBtn.setBackgroundResource(R.drawable.ic_next);
+
+        }
 
     }
 
@@ -68,7 +76,7 @@ public class CourseQuizStudRVAdapter extends RecyclerView.Adapter<CourseQuizStud
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView quizName;
-        ImageButton nextBtn;
+        public ImageButton nextBtn;
 
         public MyViewHolder(View itemView) {
             super(itemView);

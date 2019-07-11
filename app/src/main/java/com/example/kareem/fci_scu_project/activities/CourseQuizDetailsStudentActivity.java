@@ -32,11 +32,13 @@ import java.util.Map;
 import java.util.regex.Pattern;
 
 import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import static com.example.kareem.fci_scu_project.Helpers.Constants.TASK_DATA;
+import static com.example.kareem.fci_scu_project.Helpers.Constants.USER_DATA;
 
 public class CourseQuizDetailsStudentActivity extends AppCompatActivity {
 
@@ -115,7 +117,7 @@ public class CourseQuizDetailsStudentActivity extends AppCompatActivity {
                 .withActivity(this)
                 .withRequestCode(REQUEST_CODE)
                 .withHiddenFiles(true)
-                .withFilter(Pattern.compile(".*\\.pdf$"))
+                //.withFilter(Pattern.compile(".*\\.pdf$"))
                 .withTitle("Select PDF file")
                 .start();
     }
@@ -169,15 +171,29 @@ public class CourseQuizDetailsStudentActivity extends AppCompatActivity {
             progressBar.setVisibility(View.VISIBLE);
 
             // Map is used to multipart the file using okhttp3.RequestBody
-            Map<String, RequestBody> map = new HashMap<>();
-            File f = new File(filePath);
+//            Map<String, RequestBody> map = new HashMap<>();
+
+
+            // Map is used to multipart the file using okhttp3.RequestBody
+//            File file = new File(mediaPath);
+
+            // Parsing any Media type file
+//            RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
+//            MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("file", file.getName(), requestBody);
+//            RequestBody filename = RequestBody.create(MediaType.parse("text/plain"), file.getName());
+
+
+
+//            map.put("file", file);
+
+            File file = new File(filePath);
             // Parsing any Media type file
 
-            RequestBody file = RequestBody.create(MediaType.parse("application/*"), f);
+            RequestBody requestBody = RequestBody.create(MediaType.parse("application/*"), file);
 
-            map.put("file", file);
             ApiInterface getResponse = RetrofitClient.getClient().create(ApiInterface.class);
-            Call<String> call = getResponse.upload(TASK_DATA.getTaskId(), map);
+            Call<String> call = getResponse.uploadSolution(TASK_DATA.getTaskId(),USER_DATA.getId(), file.getName(), requestBody);
+            Log.i("task", "uploadFile: " + TASK_DATA.getTaskId() +" / "+ USER_DATA.getId()+" / "+file.getName());
             call.enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call<String> call, Response<String> response) {
@@ -187,9 +203,9 @@ public class CourseQuizDetailsStudentActivity extends AppCompatActivity {
                         String message = response.body();
 
                         progressBar.setVisibility(View.INVISIBLE);
-                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Task solution uploaded successfully", Toast.LENGTH_SHORT).show();
 
-                        onBackPressed();
+                        //onBackPressed();
 
 
                     }else {
@@ -210,7 +226,7 @@ public class CourseQuizDetailsStudentActivity extends AppCompatActivity {
     }
 
 
-/////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
 
 //    public void fileChooserAction(){
 //        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);

@@ -170,7 +170,8 @@
                         android:paddingEnd="8dp"
                         android:text="@string/profile_fragment_birthdate_hint_txt"
                         android:textColor="@color/colorAccent"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/profile_fragment_idNum"

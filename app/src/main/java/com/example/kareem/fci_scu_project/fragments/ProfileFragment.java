@@ -68,7 +68,7 @@ public class ProfileFragment extends Fragment{
         email = view.findViewById(R.id.profile_fragment_email);
         password = view.findViewById(R.id.profile_fragment_password);
         phone = view.findViewById(R.id.profile_fragment_phone);
-        birthDate = view.findViewById(R.id.profile_fragment_birthdate);
+//        birthDate = view.findViewById(R.id.profile_fragment_birthdate);
         idNum = view.findViewById(R.id.profile_fragment_idNum);
         dept = view.findViewById(R.id.profile_fragment_department);
         level = view.findViewById(R.id.profile_fragment_level);
