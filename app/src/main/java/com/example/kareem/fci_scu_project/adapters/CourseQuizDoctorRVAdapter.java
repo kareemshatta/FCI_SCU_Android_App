@@ -84,6 +84,7 @@ public class CourseQuizDoctorRVAdapter extends RecyclerView.Adapter<CourseQuizDo
                     @Override
                     public void onFailure(Call<String> call, Throwable t) {
                         Log.v("Response gotten is", t.getMessage());
+                        progressBar.setVisibility(View.INVISIBLE);
                         Toast.makeText(context, "problem deleting task " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
 

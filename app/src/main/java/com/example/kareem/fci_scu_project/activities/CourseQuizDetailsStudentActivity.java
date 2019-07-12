@@ -210,12 +210,13 @@ public class CourseQuizDetailsStudentActivity extends AppCompatActivity {
 
                     }else {
                         progressBar.setVisibility(View.INVISIBLE);
-                        Toast.makeText(getApplicationContext(), "problem file", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Task solution doesn't uploaded successfully", Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<String> call, Throwable t) {
+                    progressBar.setVisibility(View.INVISIBLE);
                     Log.v("Response gotten is", t.getMessage());
                     Toast.makeText(getApplicationContext(), "problem uploading file " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 }

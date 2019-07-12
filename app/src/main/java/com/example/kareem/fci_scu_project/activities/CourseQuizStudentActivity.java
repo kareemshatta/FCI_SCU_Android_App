@@ -72,14 +72,17 @@ public class CourseQuizStudentActivity extends AppCompatActivity {
                     progressBar.setVisibility(View.INVISIBLE);
 
                 } else {
+                    progressBar.setVisibility(View.INVISIBLE);
                     String message = response.message();
-                    Toast.makeText(getBaseContext(), "Error : " + message, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "please reload this page", Toast.LENGTH_SHORT).show();
                 }
 
             }
 
             @Override
             public void onFailure(Call<TasksResponse> call, Throwable t) {
+                progressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(getBaseContext(), "please reload this page", Toast.LENGTH_SHORT).show();
                 Log.i("Error", "onFailure: "+t.getMessage());
             }
         });

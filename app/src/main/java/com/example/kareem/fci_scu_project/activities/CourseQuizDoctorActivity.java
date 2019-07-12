@@ -119,6 +119,7 @@ public class CourseQuizDoctorActivity extends AppCompatActivity {
 
                     progressBar.setVisibility(View.INVISIBLE);
                 } else {
+                    progressBar.setVisibility(View.INVISIBLE);
                     String message = response.message();
                     Toast.makeText(getBaseContext(), "Error : " + message, Toast.LENGTH_SHORT).show();
                 }
@@ -127,6 +128,7 @@ public class CourseQuizDoctorActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<TasksResponse> call, Throwable t) {
+                progressBar.setVisibility(View.INVISIBLE);
                 Log.i("Error", "onFailure: "+t.getMessage());
             }
         });

@@ -105,13 +105,15 @@ public class CourseTutorialDoctorActivity extends AppCompatActivity {
 
                 } else {
                     String message = response.message();
-                    Toast.makeText(getBaseContext(), "Error : " + message, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "please reload this page", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.INVISIBLE);
                 }
-                progressBar.setVisibility(View.INVISIBLE);
             }
 
             @Override
             public void onFailure(Call<MaterialResponse> call, Throwable t) {
+                progressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(getBaseContext(), "please reload this page", Toast.LENGTH_SHORT).show();
                 Log.i("Error", "onFailure: "+t.getMessage());
             }
         });

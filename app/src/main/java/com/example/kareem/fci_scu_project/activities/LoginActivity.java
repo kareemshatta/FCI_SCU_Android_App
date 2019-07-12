@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.kareem.fci_scu_project.R;
@@ -43,7 +44,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private String name , pass;
     private User user;
     private LoginResponse loginResponse;
-    private ForgetResponse forgetResponse;
+    private ProgressBar forgetProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         loginForgetBtn.setOnClickListener(this);
         userName = findViewById(R.id.login_username);
         password = findViewById(R.id.login_password);
+
 
     }
 
@@ -72,6 +74,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         final EditText et_email = dialog.findViewById(R.id.forget_password_textview);
         Button btnSend = dialog.findViewById(R.id.forget_password_send_btn);
+        forgetProgressBar = dialog.findViewById(R.id.forget_progressBar);
 
         dialog.show();
 
@@ -80,11 +83,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View v) {
 
+                forgetProgressBar.setVisibility(View.VISIBLE);
                 final String email = et_email.getText().toString().trim();
                 //Toast.makeText(LoginActivity.this, email, Toast.LENGTH_SHORT).show();
 
                 if (email.isEmpty()) {
                     et_email.setError(getResources().getString(R.string.error_email_validation));
+                    forgetProgressBar.setVisibility(View.GONE);
                 } else {
 
                     ApiInterface apiInterface = RetrofitClient.getClient().create(ApiInterface.class);
@@ -103,14 +108,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             }else{
                                 Toast.makeText(getBaseContext(), "Try again...", Toast.LENGTH_SHORT).show();
                             }
-
+                            forgetProgressBar.setVisibility(View.GONE);
 
                         }
 
                         @Override
                         public void onFailure(Call<String> call, Throwable t) {
                             Toast.makeText(getBaseContext(), "unsuccessful process", Toast.LENGTH_SHORT).show();
-
+                            forgetProgressBar.setVisibility(View.GONE);
                         }
 
                     });
@@ -174,7 +179,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 } else {
                     String message = response.message();
-                    Toast.makeText(LoginActivity.this, "Error : " + message, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "please enter a valid email or password", Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -182,6 +187,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Toast.makeText(getBaseContext(), "try again...", Toast.LENGTH_SHORT).show();
                 Log.i("Error", "onFailure: " + t.getMessage());
             }
         });

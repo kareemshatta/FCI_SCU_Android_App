@@ -149,6 +149,8 @@ public class ProfileFragment extends Fragment{
                         @Override
                         public void onFailure(Call<ForgetResponse> call, Throwable t) {
                             Log.i("Error", "onFailure: " + t.getMessage());
+                            Toast.makeText(getActivity().getBaseContext(),"Try again...", Toast.LENGTH_SHORT).show();
+
                         }
                     });
 

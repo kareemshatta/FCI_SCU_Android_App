@@ -95,8 +95,8 @@ public class CoursesFragment extends android.support.v4.app.Fragment {
                     coursesRecyclerView.setAdapter(myAdapter);
 
                 } else {
-                    String message = response.message();
-                    Toast.makeText(getActivity().getBaseContext(), "Error : " + message, Toast.LENGTH_SHORT).show();
+//                    String message = response.message();
+                    Toast.makeText(getActivity().getBaseContext(), "please reload this page", Toast.LENGTH_SHORT).show();
                 }
                 progressBar.setVisibility(View.INVISIBLE);
             }
@@ -104,6 +104,9 @@ public class CoursesFragment extends android.support.v4.app.Fragment {
             @Override
             public void onFailure(Call<SubjectsResponse> call, Throwable t) {
                 Log.i("Error", "onFailure: "+t.getMessage());
+                progressBar.setVisibility(View.INVISIBLE);
+                Toast.makeText(getActivity().getBaseContext(), "please reload this page", Toast.LENGTH_SHORT).show();
+
             }
         });
     }

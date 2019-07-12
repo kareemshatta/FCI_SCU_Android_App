@@ -7,12 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.kareem.fci_scu_project.R;
 import com.example.kareem.fci_scu_project.classes.Notification;
 
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static com.example.kareem.fci_scu_project.Helpers.Constants.USER_DATA;
 
 public class NotificationRVAdapter  extends RecyclerView.Adapter<NotificationRVAdapter.MyViewHolder>{
 
@@ -38,8 +41,16 @@ public class NotificationRVAdapter  extends RecyclerView.Adapter<NotificationRVA
     public void onBindViewHolder(final NotificationRVAdapter.MyViewHolder holder, final int position) {
         holder.notifUsername.setText(notificationList.get(position).getUsername());
         holder.notifContent.setText(notificationList.get(position).getContent());
-        //holder.notifUserImage.setImageResource(R.drawable.ic_user_image);
 
+        String url = "https://matehub.azurewebsites.net";
+        if(USER_DATA.getProfilePicture() != null){
+            url = url.concat(USER_DATA.getProfilePicture().substring(1));
+            Glide.with(context)
+                    .load(url)
+                    .centerCrop()
+                    .placeholder(R.mipmap.boss)
+                    .into(holder.notifUserImage);
+        }
     }
 
     @Override
