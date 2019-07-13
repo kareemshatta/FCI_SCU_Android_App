@@ -1,6 +1,7 @@
 package com.example.kareem.fci_scu_project.Retrofit;
 
 import com.example.kareem.fci_scu_project.classes.CommentResponse;
+import com.example.kareem.fci_scu_project.classes.CreateTeamResponse;
 import com.example.kareem.fci_scu_project.classes.LoginResponse;
 import com.example.kareem.fci_scu_project.classes.MaterialResponse;
 import com.example.kareem.fci_scu_project.classes.PostResponse;
@@ -73,7 +74,7 @@ public interface ApiInterface {
     Call<UserResponse> getStudents();
 
     @POST("createteam")
-    Call<String> createTeam(@Query("subjectid") String subjectid, @Query("leaderid") String leaderid, @Query("teamname") String teamname, @Query("members") List<String> members);
+    Call<CreateTeamResponse> createTeam(@Query("subjectid") String subjectid, @Query("leaderid") String leaderid, @Query("teamname") String teamname, @Query("members") List<String> members);
 
 
     @GET("allteams")
@@ -81,5 +82,8 @@ public interface ApiInterface {
 
     @GET("team")
     Call<TeamDetails> getTeamDetails(@Query("teamid") String teamid);
+
+    @GET("studentteam")
+    Call<TeamDetails> hasAteam(@Query("userid") String userid,@Query("subjectid") String subjectid);
 
 }

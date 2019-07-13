@@ -16,6 +16,8 @@ import com.example.kareem.fci_scu_project.Helpers.Constants;
 import com.example.kareem.fci_scu_project.R;
 import com.example.kareem.fci_scu_project.Retrofit.ApiInterface;
 import com.example.kareem.fci_scu_project.Retrofit.RetrofitClient;
+import com.example.kareem.fci_scu_project.classes.CreateTeamResponse;
+import com.example.kareem.fci_scu_project.classes.TeamDetails;
 import com.example.kareem.fci_scu_project.fragments.HomeFragment;
 
 import java.util.ArrayList;
@@ -65,7 +67,6 @@ public class CreateTeamActivity extends AppCompatActivity {
         activity_create_team_member_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                teamMembersNames.clear();
                 Intent intent = new Intent(getBaseContext(), SelectStudentActivity.class);
                 intent.putExtra("requestCode", requestCodemember);
                 startActivityForResult(intent, 2);
@@ -92,8 +93,8 @@ public class CreateTeamActivity extends AppCompatActivity {
 
                 }else{
                     Toast.makeText(CreateTeamActivity.this, "SubjectId: "+subjectId, Toast.LENGTH_SHORT).show();
+                        createTeam(subjectId, teamName, teamLeaderId, teamMembersId);
 
-                    createTeam(subjectId,teamName,teamLeaderId,teamMembersId);
                 }
 
 
@@ -105,22 +106,24 @@ public class CreateTeamActivity extends AppCompatActivity {
 
     private void createTeam(String subjectId, String teamName, String teamLeaderId, List<String> teamMembersId) {
         ApiInterface apiInterface = RetrofitClient.getClient().create(ApiInterface.class);
-        Call<String> call = apiInterface.createTeam(subjectId,teamLeaderId,teamName,teamMembersId);
-        call.enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(retrofit2.Call call, Response response) {
-                String responseReceived = response.body().toString();
-                Log.e("createTeam", "onResponse: "+response.body().toString());
-                if (responseReceived.equals("done")) {
-                    Toast.makeText(getBaseContext(), "Team is Created ", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(getBaseContext(), "Team not Created ", Toast.LENGTH_SHORT).show();
+        Call<CreateTeamResponse> call = apiInterface.createTeam(subjectId, teamLeaderId, teamName, teamMembersId);
 
+        call.enqueue(new Callback<CreateTeamResponse>() {
+            @Override
+            public void onResponse(Call<CreateTeamResponse> call, Response<CreateTeamResponse> response) {
+                CreateTeamResponse teamResponse = response.body();
+                boolean status = teamResponse.getStatus();
+                if (status) {
+                    String teamId = teamResponse.getResponse().get(0);
+                    Toast.makeText(getBaseContext(), "Team is Created :" + teamId, Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(getBaseContext(), "Team not Created ", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(retrofit2.Call call, Throwable t) {
+            public void onFailure(Call<CreateTeamResponse> call, Throwable t) {
 
             }
         });
@@ -140,6 +143,7 @@ public class CreateTeamActivity extends AppCompatActivity {
 
             }
             if (resultCode == Activity.RESULT_CANCELED) {
+                teamLeaderId = "";
                 Toast.makeText(this, "Please select team leader", Toast.LENGTH_SHORT).show();
             }
         }
@@ -159,6 +163,8 @@ public class CreateTeamActivity extends AppCompatActivity {
             }
             if (resultCode == Activity.RESULT_CANCELED) {
                 Toast.makeText(this, "Please select team members", Toast.LENGTH_SHORT).show();
+                teamMembersNames.clear();
+
 
             }
 

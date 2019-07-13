@@ -29,6 +29,7 @@ import com.example.kareem.fci_scu_project.fragments.ProfileFragment;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static android.content.Intent.CATEGORY_LAUNCHER;
 import static com.example.kareem.fci_scu_project.Helpers.Constants.PREF_KEY;
 import static com.example.kareem.fci_scu_project.Helpers.Constants.USER_DATA;
 
@@ -141,13 +142,12 @@ public class HomeActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
 
-        String packageName = "com.example.kareem.chatproject";
-        String className = "com.example.kareem.chatproject.MainActivity";
-
+        String packageName = "com.android.chat";
+        String className   = "com.android.chat.MainActivity";
         if (id == R.id.action_chat_btn) {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_MAIN);
-            intent.addCategory(intent.CATEGORY_LAUNCHER);
+            intent.addCategory(CATEGORY_LAUNCHER);
             intent.setComponent(new ComponentName(packageName, className));
             try {
                 startActivity(intent);

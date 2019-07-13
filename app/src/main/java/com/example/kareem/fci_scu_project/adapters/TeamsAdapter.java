@@ -47,7 +47,7 @@ public class TeamsAdapter extends RecyclerView.Adapter<TeamsAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Team team = teamList.get(position);
-        Toast.makeText(context, "position :"+String.valueOf(position), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, "position :"+String.valueOf(position), Toast.LENGTH_SHORT).show();
         String teamName = team.getTeamName();
         holder.fragment_teams_row_name_tv.setText(teamName);
         holder.activity_teams_icon_group.setText((teamName.charAt(0) + "").toUpperCase());

@@ -98,18 +98,19 @@ public class CourseDetailsActivity extends AppCompatActivity {
                 }
             }
         });
+        if(USER_DATA.getRole().equals("Students")){
+            teamsBtn.setText("Team");
+        }
         teamsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (USER_DATA.getRole().equals("Students")) {
                     //for student
-                    Intent intent = new Intent(getBaseContext(), CreateTeamActivity.class);
-                    intent.putExtra("subjectId",SUBJECT_ID);
+                    Intent intent = new Intent(getBaseContext(), TeamsActivity.class);
                     startActivity(intent);
                 } else if(USER_DATA.getRole().equals("Doctors")) {
                     //for doctor
                     Intent intent = new Intent(getBaseContext(), TeamsActivity.class);
-                    intent.putExtra("subjectId",SUBJECT_ID);
                     startActivity(intent);
                 }
 
