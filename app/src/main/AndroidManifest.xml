@@ -2,20 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kareem.fci_scu_project">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/app_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/app_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activities.SelectStudentActivity"
+            android:parentActivityName=".activities.CreateTeamActivity"
+            ></activity>
         <activity
             android:name=".activities.TeamsActivity"
-            android:parentActivityName=".activities.CourseDetailsActivity"/>
+            android:parentActivityName=".activities.CourseDetailsActivity" />
         <activity
             android:name=".activities.CreateTeamActivity"
             android:parentActivityName=".activities.CourseDetailsActivity" />
@@ -59,8 +62,9 @@
             android:name=".activities.CourseQuizDetailsStudentActivity"
             android:parentActivityName=".activities.CourseQuizStudentActivity" />
         <activity
-            android:name=".activities.TeamsDetailsActivity"
+            android:name=".activities.TeamDetailsActivity"
             android:parentActivityName=".activities.TeamsActivity" />
+
 
     </application>
 

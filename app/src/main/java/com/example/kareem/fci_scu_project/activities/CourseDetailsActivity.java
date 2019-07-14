@@ -17,6 +17,7 @@ import java.util.List;
 
 import static com.example.kareem.fci_scu_project.Helpers.Constants.COURSE_NAME;
 import static com.example.kareem.fci_scu_project.Helpers.Constants.SUBJECT_ID;
+import static com.example.kareem.fci_scu_project.Helpers.Constants.USER_DATA;
 import static com.example.kareem.fci_scu_project.Helpers.Constants.USER_ROLE;
 
 public class CourseDetailsActivity extends AppCompatActivity {
@@ -97,15 +98,20 @@ public class CourseDetailsActivity extends AppCompatActivity {
                 }
             }
         });
+        if(USER_DATA.getRole().equals("Students")){
+            teamsBtn.setText("Team");
+        }
         teamsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (USER_ROLE.equals("Students")) {
+                if (USER_DATA.getRole().equals("Students")) {
                     //for student
-                    startActivity(new Intent(getBaseContext(), CreateTeamActivity.class));
-                } else {
+                    Intent intent = new Intent(getBaseContext(), TeamsActivity.class);
+                    startActivity(intent);
+                } else if(USER_DATA.getRole().equals("Doctors")) {
                     //for doctor
-                    startActivity(new Intent(getBaseContext(), TeamsActivity.class));
+                    Intent intent = new Intent(getBaseContext(), TeamsActivity.class);
+                    startActivity(intent);
                 }
 
 

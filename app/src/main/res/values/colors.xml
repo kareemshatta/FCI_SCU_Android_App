@@ -10,5 +10,6 @@
     <color name="colorDrawerText">#aeb2b7</color>
     <color name="colorCheckBG">#a7e6e2</color>
     <color name="colorRed">#da1f1f</color>
+    <color name="colorCardView">#f7f7f7</color>
 
 </resources>

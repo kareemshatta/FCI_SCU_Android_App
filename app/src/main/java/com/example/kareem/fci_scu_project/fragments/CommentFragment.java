@@ -65,6 +65,7 @@ public class CommentFragment extends Fragment {
             public void onClick(View v) {
                 String commentText = comment_fragment_comment.getText().toString();
                 addComment(Constants.USER_DATA.getId(),String.valueOf(postId),commentText);
+                comment_fragment_comment.setText("");
             }
         });
 
