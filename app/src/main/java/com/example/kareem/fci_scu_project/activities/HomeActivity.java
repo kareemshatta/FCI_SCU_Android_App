@@ -15,6 +15,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 import com.example.kareem.fci_scu_project.Helpers.Constants;
 import com.example.kareem.fci_scu_project.R;
 import com.example.kareem.fci_scu_project.classes.User;
@@ -23,7 +27,11 @@ import com.example.kareem.fci_scu_project.fragments.HomeFragment;
 import com.example.kareem.fci_scu_project.fragments.NotificationFragment;
 import com.example.kareem.fci_scu_project.fragments.ProfileFragment;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
+import static android.content.Intent.CATEGORY_LAUNCHER;
 import static com.example.kareem.fci_scu_project.Helpers.Constants.PREF_KEY;
+import static com.example.kareem.fci_scu_project.Helpers.Constants.USER_DATA;
 
 
 public class HomeActivity extends AppCompatActivity
@@ -34,6 +42,8 @@ public class HomeActivity extends AppCompatActivity
     public static String flag;
     public static int coursesBack = 0, teamsBack = 0;
     User user = null;
+    CircleImageView headerImage;
+    TextView headerUserName , headerLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +56,14 @@ public class HomeActivity extends AppCompatActivity
         flag = getIntent().getStringExtra("flag");
 
         navigationView = findViewById(R.id.nav_view);
+
+        View headerView = navigationView.getHeaderView(0);
+        headerImage = headerView.findViewById(R.id.header_image);
+        headerUserName = headerView.findViewById(R.id.header_user_name);
+        headerLevel = headerView.findViewById(R.id.header_department);
+        setHeaderData();
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -75,6 +93,22 @@ public class HomeActivity extends AppCompatActivity
 
     }
 
+    private void setHeaderData() {
+
+        String url = "https://matehub.azurewebsites.net";
+        if (USER_DATA.getProfilePicture() != null) {
+            url = url.concat(USER_DATA.getProfilePicture().substring(1));
+            Glide.with(this)
+                    .load(url)
+                    .centerCrop()
+                    .placeholder(R.mipmap.boss)
+                    .into(headerImage);
+        }
+
+        headerUserName.setText(USER_DATA.getUserName());
+        headerLevel.setText(USER_DATA.getLevel());
+
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -108,13 +142,12 @@ public class HomeActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
 
-        String packageName = "com.example.kareem.chatproject";
-        String className = "com.example.kareem.chatproject.MainActivity";
-
+        String packageName = "com.android.chat";
+        String className   = "com.android.chat.MainActivity";
         if (id == R.id.action_chat_btn) {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_MAIN);
-            intent.addCategory(intent.CATEGORY_LAUNCHER);
+            intent.addCategory(CATEGORY_LAUNCHER);
             intent.setComponent(new ComponentName(packageName, className));
             try {
                 startActivity(intent);

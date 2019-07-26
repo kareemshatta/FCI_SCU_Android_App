@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/FCI_SCU_Android_App.iml" filepath="$PROJECT_DIR$/FCI_SCU_Android_App.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/MateHub.iml" filepath="$PROJECT_DIR$/MateHub.iml" />
+>>>>>>> 39bc176c014e97662b73f190c7a4c7737d56c0bf
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

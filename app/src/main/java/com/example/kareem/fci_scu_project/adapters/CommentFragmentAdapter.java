@@ -17,7 +17,6 @@ import com.example.kareem.fci_scu_project.R;
 import com.example.kareem.fci_scu_project.classes.Comment;
 import com.example.kareem.fci_scu_project.classes.Post;
 import com.example.kareem.fci_scu_project.classes.User;
-import com.example.kareem.fci_scu_project.model.PostModel;
 
 import java.util.ArrayList;
 
@@ -32,7 +31,6 @@ public class CommentFragmentAdapter extends RecyclerView.Adapter<CommentFragment
 
     Context context;
     FragmentManager fragmentManager;
-    PostModel model;
     ArrayList<Comment> comments;
 
     public CommentFragmentAdapter(Context context, ArrayList<Comment> comments, FragmentManager fragmentManager) {
